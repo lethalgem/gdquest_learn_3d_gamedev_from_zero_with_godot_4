@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8d5v4uscxhw6"]
+[gd_scene load_steps=9 format=3 uid="uid://8d5v4uscxhw6"]
 
 [ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://player/gdbot_skin.tscn" id="1_oqriy"]
 [ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://shared/checkboard.png" id="2_2bu8t"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://daevc55retrxe" path="res://shared/mesh/pipe.obj" id="4_ff065"]
 [ext_resource type="PackedScene" uid="uid://c6uew1wfpkt16" path="res://level/interactable/flag/flag_3d.tscn" id="5_vbjwy"]
 [ext_resource type="PackedScene" uid="uid://b38vahcwqubi0" path="res://level/platforms/platform_tiny.tscn" id="6_fqbhv"]
+[ext_resource type="Environment" uid="uid://5q6577gnpihq" path="res://level/vfx/world_environment.tres" id="7_l2ij0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31dii"]
 albedo_color = Color(0.45, 0.4575, 0.9, 1)
@@ -81,3 +82,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.5, -3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.5, -8)
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999974, 0, -0.00726041, 0, 1, 0, 0.00726041, 0, -0.999974, -0.125389, -0.0133902, -19.7944)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0025133, 0.999997, 0, -0.999997, -0.0025133, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("7_l2ij0")

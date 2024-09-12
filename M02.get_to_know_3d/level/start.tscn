@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ipk6pf4uekva"]
+[gd_scene load_steps=11 format=3 uid="uid://ipk6pf4uekva"]
 
 [ext_resource type="Script" path="res://level/game.gd" id="1_6gii1"]
 [ext_resource type="Shader" path="res://shared/shaders/sky.gdshader" id="2_cqmds"]
+[ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://player/player_3d.tscn" id="3_crpxi"]
+[ext_resource type="PackedScene" uid="uid://ccpkxlkt3agdp" path="res://player/camera_controller.tscn" id="4_yrq4l"]
+[ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://player/gdbot_skin.tscn" id="5_yqsag"]
 
 [sub_resource type="Curve" id="Curve_vfy0b"]
 _data = [Vector2(0.2, 0), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 2.0, 0.0, 1, 0]
@@ -46,3 +49,13 @@ environment = SubResource("Environment_mm38n")
 transform = Transform3D(0.226294, 0.780723, -0.582463, 0, 0.597975, 0.801515, 0.974059, -0.181378, 0.135318, 0, 10.8832, -0.34267)
 shadow_enabled = true
 directional_shadow_max_distance = 40.0
+
+[node name="Player3D" parent="." instance=ExtResource("3_crpxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+camera_controller_scene = ExtResource("4_yrq4l")
+skin_scene = ExtResource("5_yqsag")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+use_collision = true
+size = Vector3(10, 20, 10)
