@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://d338cafma0b7f"]
+
+[ext_resource type="Script" path="res://level/game.gd" id="1_asotc"]
+[ext_resource type="Shader" path="res://shared/shaders/sky.gdshader" id="2_gexso"]
+[ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://player/player_3d.tscn" id="3_how5b"]
+[ext_resource type="PackedScene" uid="uid://ccpkxlkt3agdp" path="res://player/camera_controller.tscn" id="4_e3gws"]
+[ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://player/gdbot_skin.tscn" id="5_y0ul0"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://shared/checkboard.png" id="6_vgvyc"]
+
+[sub_resource type="Curve" id="Curve_vfy0b"]
+_data = [Vector2(0.2, 0), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_moxc7"]
+curve = SubResource("Curve_vfy0b")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6vx4"]
+shader = ExtResource("2_gexso")
+shader_parameter/top_color = Color(0.772549, 0.792157, 1, 1)
+shader_parameter/bottom_color = Color(0.603922, 0.560784, 1, 1)
+shader_parameter/gradient_curve = SubResource("CurveTexture_moxc7")
+
+[sub_resource type="Sky" id="Sky_0h0bb"]
+sky_material = SubResource("ShaderMaterial_r6vx4")
+
+[sub_resource type="Environment" id="Environment_mm38n"]
+background_mode = 2
+sky = SubResource("Sky_0h0bb")
+ambient_light_source = 3
+ambient_light_color = Color(0.74902, 0.74902, 0.74902, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+tonemap_exposure = 1.05
+tonemap_white = 0.95
+glow_normalized = true
+glow_strength = 0.25
+fog_enabled = true
+fog_light_color = Color(0.603922, 0.560784, 1, 1)
+fog_density = 0.0
+fog_sky_affect = 0.0
+fog_height_density = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk5u3"]
+albedo_color = Color(0.45, 0.4575, 0.9, 1)
+albedo_texture = ExtResource("6_vgvyc")
+roughness = 0.85
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 10.0
+
+[node name="Game" type="Node"]
+script = ExtResource("1_asotc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mm38n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.226294, 0.780723, -0.582463, 0, 0.597975, 0.801515, 0.974059, -0.181378, 0.135318, 0, 10.8832, -0.34267)
+shadow_enabled = true
+directional_shadow_max_distance = 40.0
+
+[node name="Player3D" parent="." instance=ExtResource("3_how5b")]
+camera_controller_scene = ExtResource("4_e3gws")
+skin_scene = ExtResource("5_y0ul0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.5, 0)
+use_collision = true
+size = Vector3(10, 19, 10)
+material = SubResource("StandardMaterial3D_kk5u3")

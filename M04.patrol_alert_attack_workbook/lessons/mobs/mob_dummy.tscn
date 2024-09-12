@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5luv0tbdat2c"]
+
+[ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="2_8a1qg"]
+[ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="3_sb476"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqdxk"]
+radius = 0.263873
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_poc1g"]
+
+[node name="MobDummy3D" type="CharacterBody3D"]
+top_level = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
+shape = SubResource("CapsuleShape3D_dqdxk")
+
+[node name="DummySkin" parent="." instance=ExtResource("2_8a1qg")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("3_sb476")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_poc1g")

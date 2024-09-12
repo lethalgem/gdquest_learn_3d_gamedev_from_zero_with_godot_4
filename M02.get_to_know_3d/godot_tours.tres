@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://cn3rnlqlke2wj"]
+
+[ext_resource type="Script" path="res://addons/godot_tours/godot_tour_list.gd" id="1_jcgwy"]
+[ext_resource type="Script" path="res://addons/godot_tours/godot_tour_entry.gd" id="2_wh1da"]
+
+[sub_resource type="Resource" id="Resource_7h6kp"]
+script = ExtResource("2_wh1da")
+title = "103: Introduction to 3D in Godot"
+is_free = false
+is_locked = false
+tour_path = "res://tours/103_introduction_to_3d/01_navigation_and_elements.gd"
+
+[sub_resource type="Resource" id="Resource_70af0"]
+script = ExtResource("2_wh1da")
+title = "104.a: Assemble a 3D game"
+is_free = false
+is_locked = false
+tour_path = "res://tours/104_3d_game_01/01_assemble_a_3d_game.gd"
+
+[sub_resource type="Resource" id="Resource_cg0lj"]
+script = ExtResource("2_wh1da")
+title = "104.b: Create your first material"
+is_free = false
+is_locked = false
+tour_path = "res://tours/104_3d_game_02/02_create_your_first_material.gd"
+
+[sub_resource type="Resource" id="Resource_8bkp4"]
+script = ExtResource("2_wh1da")
+title = "104.c: Design a game level"
+is_free = false
+is_locked = false
+tour_path = "res://tours/104_3d_game_03/03_design_a_game_level.gd"
+
+[resource]
+script = ExtResource("1_jcgwy")
+tours = [SubResource("Resource_7h6kp"), SubResource("Resource_70af0"), SubResource("Resource_cg0lj"), SubResource("Resource_8bkp4")]

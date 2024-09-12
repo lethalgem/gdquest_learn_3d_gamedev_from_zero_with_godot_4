@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4b5ff22xw7qe"]
+
+[ext_resource type="Script" path="res://addons/gdpractice/practice_solutions/L3.P1/bullet.gd" id="1_lxj82"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffwux"]
+albedo_color = Color(1, 0.717647, 0.188235, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_o52gr"]
+material = SubResource("StandardMaterial3D_ffwux")
+radius = 0.15
+height = 0.3
+radial_segments = 12
+rings = 8
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_lxj82")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_o52gr")

@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddykb7oupr1ji"]
+
+[ext_resource type="Script" path="res://lessons_reference/020_states_for_dummies/mob_dummy_3d.gd" id="1_v7grp"]
+[ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="2_al7vp"]
+[ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="3_barfb"]
+[ext_resource type="Script" path="res://assets/hit_box_3d.gd" id="4_doqep"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqdxk"]
+radius = 0.263873
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_p3v63"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ujbm0"]
+radius = 0.319261
+
+[node name="DummyMob3D" type="CharacterBody3D" node_paths=PackedStringArray("skin", "hurt_box", "debug_label")]
+top_level = true
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_v7grp")
+skin = NodePath("DummySkin")
+hurt_box = NodePath("HurtBox3D")
+debug_label = NodePath("Label3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
+shape = SubResource("CapsuleShape3D_dqdxk")
+
+[node name="DummySkin" parent="." instance=ExtResource("2_al7vp")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="ShootingPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775983, 0.495688)
+gizmo_extents = 0.5
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62973, 0)
+billboard = 1
+text = "Test"
+font_size = 48
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("3_barfb")
+hurtbox_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_p3v63")
+
+[node name="HitBox3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_doqep")
+damage_source = 2
+detected_hurtboxes = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_ujbm0")

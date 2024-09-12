@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://fpdoq1o3dhfh"]
+
+[ext_resource type="Script" path="res://lessons_reference/020_weapon/projectile/projectile_020.gd" id="1_ubrn6"]
+[ext_resource type="PackedScene" uid="uid://caxbqhwe5nxb3" path="res://assets/vfx/fireball/fireball.tscn" id="3_whk4k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4mnn0"]
+radius = 0.3
+
+[node name="Projectile3D" type="Area3D"]
+collision_mask = 10
+script = ExtResource("1_ubrn6")
+projectile_vfx = ExtResource("3_whk4k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4mnn0")

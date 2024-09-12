@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://gnab5o7c5sl"]
+
+[ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="4_uou8b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqdxk"]
+radius = 0.263873
+height = 1.0
+
+[node name="Mob3D" type="CharacterBody3D"]
+top_level = true
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
+shape = SubResource("CapsuleShape3D_dqdxk")
+
+[node name="Pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="DummySkin" parent="Pivot" instance=ExtResource("4_uou8b")]
+unique_name_in_owner = true
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)

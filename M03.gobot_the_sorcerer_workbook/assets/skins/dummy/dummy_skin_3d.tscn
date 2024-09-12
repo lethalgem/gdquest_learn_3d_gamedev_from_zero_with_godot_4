@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddjouhm76gjbx"]
+
+[ext_resource type="PackedScene" uid="uid://1e45y3wup8c4" path="res://assets/skins/dummy/dummy.glb" id="1_rr1a5"]
+[ext_resource type="Script" path="res://assets/skins/dummy/dummy_skin_3d.gd" id="1_uvklm"]
+[ext_resource type="Material" uid="uid://je1p01igsoee" path="res://assets/skins/dummy/dummy_mat.tres" id="3_wu7ut"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5axn0"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mc74q"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_5axn0")
+nodes/Animation/position = Vector2(-51, 107)
+nodes/output/position = Vector2(360, 160)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="DummySkin" type="Node3D"]
+script = ExtResource("1_uvklm")
+
+[node name="dummy" parent="." instance=ExtResource("1_rr1a5")]
+unique_name_in_owner = true
+
+[node name="Skeleton3D" parent="dummy/RIG-Armature" index="0"]
+bones/0/position = Vector3(-0.00238795, 1.07722, -0.210982)
+bones/0/rotation = Quaternion(-0.372345, 0.092128, 0.0967744, 0.918426)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(-8.21668e-08, 9.43804e-09, 0.0522485, 0.998634)
+bones/2/rotation = Quaternion(9.01829e-08, -5.94283e-09, 0.0311152, 0.999516)
+bones/3/position = Vector3(0.0369961, 0.623764, 8.66633e-05)
+bones/3/rotation = Quaternion(0.00427029, 0.0759213, 0.00737504, 0.997077)
+bones/4/position = Vector3(0.0269614, 0.408199, 6.41358e-08)
+bones/4/rotation = Quaternion(0.995864, -0.0229781, -0.087874, -0.00223298)
+bones/5/position = Vector3(0.155495, 0.553207, -0.0185993)
+bones/5/rotation = Quaternion(-0.482057, -0.50052, -0.402651, 0.595796)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(-0.0875053, 0.564421, 0.0187205)
+bones/6/rotation = Quaternion(-0.40228, 0.593764, 0.485619, 0.499789)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(0.0269614, 0.408199, 5.13229e-09)
+bones/7/rotation = Quaternion(0.00195391, 0.0759488, -0.0229769, 0.996845)
+bones/8/rotation = Quaternion(0.000212509, 0.00903812, -0.031304, 0.999469)
+
+[node name="dummy2" parent="dummy/RIG-Armature/Skeleton3D" index="0"]
+material_override = ExtResource("3_wu7ut")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("%dummy")
+tree_root = SubResource("AnimationNodeBlendTree_mc74q")
+anim_player = NodePath("../dummy/AnimationPlayer")
+
+[editable path="dummy"]

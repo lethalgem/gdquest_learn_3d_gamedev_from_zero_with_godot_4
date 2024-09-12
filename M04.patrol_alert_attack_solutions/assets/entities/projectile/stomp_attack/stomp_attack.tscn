@@ -1,0 +1,431 @@
+[gd_scene load_steps=36 format=3 uid="uid://cqvwldk5yrnli"]
+
+[ext_resource type="Script" path="res://assets/hit_box_3d.gd" id="2_6p54h"]
+[ext_resource type="Shader" path="res://assets/entities/projectile/stomp_attack/small_trails.gdshader" id="2_lss02"]
+[ext_resource type="Shader" path="res://assets/entities/projectile/stomp_attack/shock_wave.gdshader" id="2_vscvb"]
+[ext_resource type="Shader" path="res://assets/entities/projectile/stomp_attack/small_rocks.gdshader" id="4_dxpg6"]
+[ext_resource type="ArrayMesh" uid="uid://dg6ro26u3yirr" path="res://assets/entities/projectile/stomp_attack/debris.obj" id="5_5tad0"]
+[ext_resource type="Shader" path="res://assets/entities/projectile/stomp_attack/dust.gdshader" id="5_enw8x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wi5bm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_slvob"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hm0j3"]
+seamless = true
+noise = SubResource("FastNoiseLite_slvob")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obp8e"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_vscvb")
+shader_parameter/albedo = Color(0.962747, 0.548526, 0, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/offset = 0.0
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_hm0j3")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o0rjd"]
+top_radius = 1.2
+bottom_radius = 0.8
+height = 0.1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7j3p"]
+render_priority = 0
+shader = ExtResource("2_lss02")
+
+[sub_resource type="Curve" id="Curve_olcto"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lx1lk"]
+curve = SubResource("Curve_olcto")
+
+[sub_resource type="Curve" id="Curve_cesp8"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wxbav"]
+curve = SubResource("Curve_cesp8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oqimo"]
+lifetime_randomness = 0.25
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 18.0
+gravity = Vector3(0, 0, 0)
+damping_min = 10.0
+damping_max = 20.0
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_wxbav")
+color = Color(1, 0.733333, 0, 1)
+alpha_curve = SubResource("CurveTexture_lx1lk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_1iomj"]
+size = Vector2(0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_286ub"]
+albedo_color = Color(0.776471, 0.772549, 0.737255, 1)
+
+[sub_resource type="Curve" id="Curve_qcrkv"]
+_data = [Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8hbcj"]
+curve = SubResource("Curve_qcrkv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77y36"]
+shader = ExtResource("4_dxpg6")
+shader_parameter/base_scale = 0.8
+shader_parameter/collision_friction = 0.5
+shader_parameter/collision_bounce = 0.5
+shader_parameter/scale_curve = SubResource("CurveTexture_8hbcj")
+
+[sub_resource type="Shader" id="Shader_gvqsk"]
+code = "shader_type spatial;
+render_mode shadows_disabled;
+
+uniform sampler2D gradient_sampler : filter_linear, source_color, repeat_disable;
+uniform sampler2D noise_sampler : filter_linear, repeat_enable;
+uniform float uv_scale : hint_range(0.0, 1.0, 0.1) = 0.5;
+uniform float energy = 1.0;
+varying vec4 custom;
+
+void vertex() {
+	mat4 mat_world = mat4(normalize(INV_VIEW_MATRIX[0]), normalize(INV_VIEW_MATRIX[1]) ,normalize(INV_VIEW_MATRIX[2]), MODEL_MATRIX[3]);
+	mat_world = mat_world * mat4(vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat_world;
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0),vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	custom = INSTANCE_CUSTOM;
+}
+
+void fragment() {
+	float mask = texture(noise_sampler, UV * uv_scale + custom.z).x - 0.5 + custom.y;
+	float dist = distance(UV, vec2(0.5));
+	float dist_mask = smoothstep(0.45, 0.2, dist);
+	vec3 gradient = texture(gradient_sampler, vec2(mask, 0.0)).rgb;
+	ALBEDO = gradient;
+	EMISSION = ALBEDO * energy;
+	ALPHA = round(dist_mask - mask);
+	ALPHA_SCISSOR_THRESHOLD = 0.5;
+}"
+
+[sub_resource type="Gradient" id="Gradient_y364y"]
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(1, 1, 1, 1, 0.969137, 0.969137, 0.969137, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yhqqy"]
+gradient = SubResource("Gradient_y364y")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3nrb4"]
+noise_type = 2
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8pv8f"]
+seamless = true
+noise = SubResource("FastNoiseLite_3nrb4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e816e"]
+render_priority = 0
+shader = SubResource("Shader_gvqsk")
+shader_parameter/uv_scale = 0.3
+shader_parameter/energy = 0.0
+shader_parameter/gradient_sampler = SubResource("GradientTexture1D_yhqqy")
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_8pv8f")
+
+[sub_resource type="Curve" id="Curve_kj1nn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6lbmt"]
+curve = SubResource("Curve_kj1nn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unks6"]
+shader = ExtResource("5_enw8x")
+shader_parameter/scale_curve = SubResource("CurveTexture_6lbmt")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a6uc7"]
+
+[sub_resource type="Animation" id="Animation_7j8ro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trails:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShockWave:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.2, 0.2, 0.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SmallDebris:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox3D/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShockWave:material_override:shader_parameter/alpha")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox3D/CollisionShape3D:shape:radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dust:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ShockWave:material_override:shader_parameter/offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mqoni"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trails:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShockWave:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.517633, -2),
+"update": 0,
+"values": [Vector3(0.1, 2, 0.1), Vector3(4, 1, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SmallDebris:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox3D/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShockWave:material_override:shader_parameter/alpha")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox3D/CollisionShape3D:shape:radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.1, 3.7]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dust:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ShockWave:material_override:shader_parameter/offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kx141"]
+_data = {
+"RESET": SubResource("Animation_7j8ro"),
+"default": SubResource("Animation_mqoni")
+}
+
+[node name="StompAttack" type="Node3D"]
+
+[node name="HitBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("2_6p54h")
+damage_source = 2
+detected_hurtboxes = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D"]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_wi5bm")
+
+[node name="ShockWave" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
+material_override = SubResource("ShaderMaterial_obp8e")
+mesh = SubResource("CylinderMesh_o0rjd")
+
+[node name="Trails" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_t7j3p")
+emitting = false
+amount = 16
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.25
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_oqimo")
+draw_pass_1 = SubResource("QuadMesh_1iomj")
+
+[node name="SmallDebris" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = SubResource("StandardMaterial3D_286ub")
+emitting = false
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ShaderMaterial_77y36")
+draw_pass_1 = ExtResource("5_5tad0")
+
+[node name="Dust" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = SubResource("ShaderMaterial_e816e")
+emitting = false
+amount = 18
+one_shot = true
+explosiveness = 0.19
+randomness = 1.0
+process_material = SubResource("ShaderMaterial_unks6")
+draw_pass_1 = SubResource("QuadMesh_a6uc7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+callback_mode_process = 0
+libraries = {
+"": SubResource("AnimationLibrary_kx141")
+}
+autoplay = "default"

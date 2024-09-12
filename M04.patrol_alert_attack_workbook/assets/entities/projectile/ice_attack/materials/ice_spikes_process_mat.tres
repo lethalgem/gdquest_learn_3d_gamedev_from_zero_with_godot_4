@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://c6gus7mhso27x"]
+
+[ext_resource type="Shader" path="res://assets/entities/projectile/ice_attack/materials/ice_spikes_process.gdshader" id="1_nk306"]
+
+[sub_resource type="Curve" id="Curve_30cam"]
+_data = [Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fq2vg"]
+curve = SubResource("Curve_30cam")
+
+[sub_resource type="Curve" id="Curve_ji1y0"]
+min_value = -1.0
+max_value = 0.1
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.1, 0.1), 0.0, 0.0, 0, 0, Vector2(0.2, -0.01), 0.0, 0.0, 0, 0, Vector2(0.8, -0.01), 0.0, 0.0, 0, 0, Vector2(1, -0.45), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_hm67w"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_ce5cd"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, -10.1214, 1, 1]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_moyi5"]
+curve_x = SubResource("Curve_ji1y0")
+curve_y = SubResource("Curve_hm67w")
+curve_z = SubResource("Curve_ce5cd")
+
+[resource]
+shader = ExtResource("1_nk306")
+shader_parameter/particles_count = 18
+shader_parameter/min_radius = 1.0
+shader_parameter/max_radius = 4.0
+shader_parameter/min_scale = 0.4
+shader_parameter/max_scale = 2.0
+shader_parameter/sub_emitter_frequency = 0.25
+shader_parameter/alpha_curve = SubResource("CurveTexture_fq2vg")
+shader_parameter/curve_sampler = SubResource("CurveXYZTexture_moyi5")

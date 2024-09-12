@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmoa2fpnsnvm0"]
+
+[ext_resource type="PackedScene" uid="uid://bosa48x4gwq0k" path="res://assets/background.tscn" id="1_4nvsb"]
+[ext_resource type="PackedScene" uid="uid://44vb14rfcc4a" path="res://practice_solutions/L7.P1/bullet.tscn" id="2_6bt1i"]
+
+[node name="ProjectileMovement" type="Node3D"]
+
+[node name="Background" parent="." instance=ExtResource("1_4nvsb")]
+
+[node name="Bullet" parent="." instance=ExtResource("2_6bt1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.808748, 4)
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76837e-07, 28)
+current = true
+fov = 25.0
+size = 12.555
+near = 15.0
+far = 100.0

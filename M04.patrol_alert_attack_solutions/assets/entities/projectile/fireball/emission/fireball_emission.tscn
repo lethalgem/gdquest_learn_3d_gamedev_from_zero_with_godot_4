@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://dclooq8a7td5p"]
+
+[ext_resource type="Script" path="res://assets/entities/projectile/fireball/emission/fireball_emission.gd" id="1_1ly7w"]
+[ext_resource type="Shader" path="res://assets/entities/projectile/fireball/impact/ember.gdshader" id="1_kjleb"]
+[ext_resource type="Texture2D" uid="uid://cacm3my5rnyaf" path="res://assets/entities/projectile/fireball/impact/spark.png" id="2_ylwjp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6rig6"]
+render_priority = 0
+shader = ExtResource("1_kjleb")
+shader_parameter/mask_sampler = ExtResource("2_ylwjp")
+
+[sub_resource type="Curve" id="Curve_hc6us"]
+_data = [Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yivgo"]
+curve = SubResource("Curve_hc6us")
+
+[sub_resource type="Curve" id="Curve_hgt86"]
+_data = [Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kgwne"]
+curve = SubResource("Curve_hgt86")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gwudx"]
+lifetime_randomness = 0.5
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_kgwne")
+color = Color(1, 0.619608, 0.239216, 1)
+alpha_curve = SubResource("CurveTexture_yivgo")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xsbf4"]
+size = Vector2(0.2, 0.4)
+
+[node name="AmberParticles" type="GPUParticles3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_6rig6")
+emitting = false
+amount = 4
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_gwudx")
+draw_pass_1 = SubResource("QuadMesh_xsbf4")
+script = ExtResource("1_1ly7w")

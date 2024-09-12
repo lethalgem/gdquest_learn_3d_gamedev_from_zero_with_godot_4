@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddjouhm76gjbx"]
+
+[ext_resource type="PackedScene" uid="uid://1e45y3wup8c4" path="res://assets/skins/dummy/dummy.glb" id="1_rr1a5"]
+[ext_resource type="Script" path="res://assets/skins/dummy/dummy_skin_3d.gd" id="1_uvklm"]
+[ext_resource type="Shader" path="res://assets/skins/character_shader.gdshader" id="3_7y4ec"]
+[ext_resource type="Texture2D" uid="uid://bi0o8ccvuiej4" path="res://assets/skins/dummy/dummy_diffuse.png" id="4_20ytc"]
+[ext_resource type="Texture2D" uid="uid://dun4w5y08xrn3" path="res://assets/skins/dummy/dummy_normal.png" id="5_t0onq"]
+[ext_resource type="Texture2D" uid="uid://dv0sajpiuwfv7" path="res://assets/skins/dummy/dummy_roughness.png" id="6_4hh1x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wf6h"]
+render_priority = 0
+shader = ExtResource("3_7y4ec")
+shader_parameter/base_roughness = 1.0
+shader_parameter/rim_light_color = Color(1, 1, 1, 1)
+shader_parameter/rim_light_intensity = 1.0
+shader_parameter/emission_color = Color(0.698039, 0.0941176, 0.0862745, 0)
+shader_parameter/emission_intensity = 0.0
+shader_parameter/albedo_sampler = ExtResource("4_20ytc")
+shader_parameter/roughness_sampler = ExtResource("6_4hh1x")
+shader_parameter/normal_sampler = ExtResource("5_t0onq")
+
+[node name="DummySkin3D" instance=ExtResource("1_rr1a5")]
+script = ExtResource("1_uvklm")
+
+[node name="Skeleton3D" parent="RIG-Armature" index="0"]
+bones/0/position = Vector3(0.0732299, 1.07486, -0.216062)
+bones/0/rotation = Quaternion(-0.377629, 0.0586378, 0.00924443, 0.924052)
+bones/1/rotation = Quaternion(-6.96833e-08, 7.11839e-09, 0.0637703, 0.997965)
+bones/2/rotation = Quaternion(7.88469e-08, -2.60819e-09, 0.0697565, 0.997564)
+bones/3/position = Vector3(0.0402989, 0.623425, 0.000496752)
+bones/3/rotation = Quaternion(0.00236709, 0.0235897, -0.0471192, 0.998608)
+bones/4/position = Vector3(0.0196273, 0.408618, 6.11846e-08)
+bones/4/rotation = Quaternion(0.987393, -0.0472265, -0.150844, -0.00838042)
+bones/5/position = Vector3(0.156418, 0.546944, -0.0055635)
+bones/5/rotation = Quaternion(-0.495686, -0.501262, -0.444552, 0.552635)
+bones/6/position = Vector3(-0.0882763, 0.570465, 0.00625771)
+bones/6/rotation = Quaternion(-0.390976, 0.595056, 0.444052, 0.543934)
+bones/7/position = Vector3(0.0196273, 0.408618, 4.79997e-09)
+bones/7/rotation = Quaternion(0.00230122, 0.0239408, -0.0479091, 0.998562)
+bones/8/rotation = Quaternion(-0.000441112, -0.0226395, -0.0227268, 0.999485)
+
+[node name="dummy2" parent="RIG-Armature/Skeleton3D" index="0"]
+unique_name_in_owner = true
+material_override = SubResource("ShaderMaterial_2wf6h")

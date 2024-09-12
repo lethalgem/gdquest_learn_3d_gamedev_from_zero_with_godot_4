@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bw14c1iaac2sq"
+path="res://.godot/imported/disk.obj-b2d10955f5f0d25d19d69a27fe2dd754.mesh"
+
+[deps]
+
+files=["res://.godot/imported/disk.obj-b2d10955f5f0d25d19d69a27fe2dd754.mesh"]
+
+source_file="res://assets/vfx/explosion/objects/disk.obj"
+dest_files=["res://.godot/imported/disk.obj-b2d10955f5f0d25d19d69a27fe2dd754.mesh", "res://.godot/imported/disk.obj-b2d10955f5f0d25d19d69a27fe2dd754.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

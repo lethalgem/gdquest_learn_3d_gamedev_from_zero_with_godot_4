@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyebqgd8ferbu"]
+
+[ext_resource type="PackedScene" uid="uid://bqq4gkmg5n2xw" path="res://lessons_reference/030_damage/mobs/mob_3d.tscn" id="2_rsytd"]
+[ext_resource type="PackedScene" uid="uid://bcg1dd2lxlf7t" path="res://lessons_reference/030_damage/player/player_3d.tscn" id="3_yhqkl"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="6_jcohv"]
+
+[sub_resource type="Environment" id="Environment_s26vl"]
+background_mode = 1
+background_color = Color(0.1, 0.1, 0.1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.75, 0.75, 0.75, 1)
+ambient_light_sky_contribution = 0.0
+tonemap_mode = 2
+glow_normalized = true
+glow_bloom = 0.05
+fog_enabled = true
+fog_light_color = Color(0.14902, 0.14902, 0.14902, 1)
+fog_density = 0.0
+fog_sky_affect = 0.5
+fog_height = -1.0
+fog_height_density = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7des4"]
+albedo_color = Color(0.439062, 0.439062, 0.439062, 1)
+albedo_texture = ExtResource("6_jcohv")
+uv1_triplanar = true
+
+[node name="Game" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+light_energy = 1.25
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 40.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s26vl")
+
+[node name="Mob3D2" parent="." instance=ExtResource("2_rsytd")]
+transform = Transform3D(0.707107, 3.09086e-08, 0.707107, -3.09086e-08, 1, -1.28028e-08, -0.707107, -1.28028e-08, 0.707107, -3, 0, 0)
+
+[node name="Mob3D3" parent="." instance=ExtResource("2_rsytd")]
+transform = Transform3D(0.866025, -2.18557e-08, -0.5, 2.18557e-08, 1, -5.85621e-09, 0.5, -5.85621e-09, 0.866025, 3, 0, 0)
+
+[node name="Mob3D4" parent="." instance=ExtResource("2_rsytd")]
+transform = Transform3D(1, 1.9984e-15, 5.96046e-08, -4.21885e-15, 1, -2.22045e-15, -5.96046e-08, 4.44089e-16, 1, 0, 0, -3)
+
+[node name="Player3D" parent="." instance=ExtResource("3_yhqkl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00516343, 0, 2.98495)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+use_collision = true
+collision_layer = 8
+collision_mask = 0
+size = Vector3(19, 14, 19)
+material = SubResource("StandardMaterial3D_7des4")

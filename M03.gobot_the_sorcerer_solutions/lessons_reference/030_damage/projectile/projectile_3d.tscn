@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://wawlsqcberu6"]
+
+[ext_resource type="Script" path="res://lessons_reference/030_damage/projectile/projectile_3d.gd" id="1_brggm"]
+[ext_resource type="PackedScene" uid="uid://232aww8oks7n" path="res://assets/vfx/fireball/fireball_impact.tscn" id="2_dbwwf"]
+[ext_resource type="PackedScene" uid="uid://caxbqhwe5nxb3" path="res://assets/vfx/fireball/fireball.tscn" id="3_tbnj4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4mnn0"]
+radius = 0.3
+
+[node name="Projectile3D" type="Area3D"]
+top_level = true
+collision_mask = 10
+script = ExtResource("1_brggm")
+projectile_vfx = ExtResource("3_tbnj4")
+impact_vfx = ExtResource("2_dbwwf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4mnn0")

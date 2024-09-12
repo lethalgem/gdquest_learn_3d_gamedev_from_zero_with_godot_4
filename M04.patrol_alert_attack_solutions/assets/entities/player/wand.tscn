@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6asfjx5e15q4"]
+
+[ext_resource type="Script" path="res://assets/entities/player/wand.gd" id="1_q3gad"]
+
+[node name="Wand" type="Marker3D"]
+script = ExtResource("1_q3gad")
+fire_rate = 5.0
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg8gfi3a4cvoj"]
+
+[ext_resource type="Script" path="res://lessons_reference/010_simple_dummy/mob_dummy_simple_states.gd" id="1_vl61p"]
+[ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="2_cvp6j"]
+[ext_resource type="PackedScene" uid="uid://owdmkemrssa" path="res://assets/entities/projectile/mob_fireball.tscn" id="2_egr3d"]
+[ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="3_etrjd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqdxk"]
+radius = 0.263873
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_poc1g"]
+
+[node name="MobDummy3D" type="CharacterBody3D"]
+top_level = true
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_vl61p")
+projectile_scene = ExtResource("2_egr3d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
+shape = SubResource("CapsuleShape3D_dqdxk")
+
+[node name="DummySkin" parent="." instance=ExtResource("2_cvp6j")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("3_etrjd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_poc1g")
+
+[node name="ShootingPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775983, 0.571244)
+gizmo_extents = 0.5

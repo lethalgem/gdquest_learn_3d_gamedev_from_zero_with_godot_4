@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dnxpfx6g7wgbt"]
+
+[ext_resource type="Shader" path="res://assets/skins/character_shader.gdshader" id="1_k626t"]
+[ext_resource type="Texture2D" uid="uid://bi0o8ccvuiej4" path="res://assets/skins/dummy/dummy_diffuse.png" id="2_f0i56"]
+[ext_resource type="Texture2D" uid="uid://dun4w5y08xrn3" path="res://assets/skins/dummy/dummy_normal.png" id="3_jykt1"]
+[ext_resource type="Texture2D" uid="uid://dv0sajpiuwfv7" path="res://assets/skins/dummy/dummy_roughness.png" id="4_n35tt"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_k626t")
+shader_parameter/base_roughness = 1.0
+shader_parameter/rim_light_color = Color(1, 1, 1, 1)
+shader_parameter/rim_light_intensity = 1.0
+shader_parameter/emission_color = Color(0.698039, 0.0941176, 0.0862745, 0)
+shader_parameter/emission_intensity = -2.97
+shader_parameter/albedo_sampler = ExtResource("2_f0i56")
+shader_parameter/roughness_sampler = ExtResource("4_n35tt")
+shader_parameter/normal_sampler = ExtResource("3_jykt1")

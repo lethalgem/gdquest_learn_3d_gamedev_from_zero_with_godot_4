@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://practices/L7.P1/machine_gun.gd" id="1_3vegr"]
+
+[node name="MachineGun" type="Marker3D"]
+script = ExtResource("1_3vegr")
+bullet_scene = null
+max_range = 12.0
+max_bullet_speed = 25.0
+fire_rate = 3.0
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

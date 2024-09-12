@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3n4mtmmtnulv"]
+
+[ext_resource type="Script" path="res://lessons_reference/020_weapon/player/player_020.gd" id="1_yxklp"]
+[ext_resource type="PackedScene" uid="uid://bfps7cseywca" path="res://lessons_reference/020_weapon/player/wand_020.tscn" id="3_vnp3r"]
+[ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://assets/skins/gobot/gobot_skin_3d.tscn" id="4_mqybq"]
+[ext_resource type="PackedScene" uid="uid://fpdoq1o3dhfh" path="res://lessons_reference/020_weapon/projectile/projectile_020.tscn" id="4_p4k5y"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7x3c3"]
+height = 1.0
+radius = 0.4
+
+[node name="Player3D" type="CharacterBody3D"]
+top_level = true
+collision_mask = 14
+floor_constant_speed = true
+script = ExtResource("1_yxklp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_7x3c3")
+
+[node name="GobotSkin3D" parent="." instance=ExtResource("4_mqybq")]
+unique_name_in_owner = true
+
+[node name="Wand" parent="GobotSkin3D" instance=ExtResource("3_vnp3r")]
+projectile_scene = ExtResource("4_p4k5y")
+max_range = 8.0
+fire_rate = 8.0
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76837e-07, 28)
+current = true
+fov = 25.0
+size = 12.555
+near = 15.0
+far = 100.0

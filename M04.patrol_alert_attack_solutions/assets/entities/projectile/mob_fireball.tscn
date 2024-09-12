@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://owdmkemrssa"]
+
+[ext_resource type="Script" path="res://assets/entities/projectile/projectile_3d.gd" id="1_bf0wu"]
+[ext_resource type="PackedScene" uid="uid://caxbqhwe5nxb3" path="res://assets/vfx/fireball/fireball.tscn" id="2_n6yan"]
+[ext_resource type="PackedScene" uid="uid://232aww8oks7n" path="res://assets/vfx/fireball/fireball_impact.tscn" id="3_hhsf7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4mnn0"]
+radius = 0.3
+
+[node name="MobFireball" type="Area3D"]
+top_level = true
+collision_mask = 10
+script = ExtResource("1_bf0wu")
+projectile_vfx = ExtResource("2_n6yan")
+impact_vfx = ExtResource("3_hhsf7")
+damage_source = 2
+detected_hurtboxes = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4mnn0")

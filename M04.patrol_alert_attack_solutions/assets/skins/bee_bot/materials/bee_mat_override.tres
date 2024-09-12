@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dngjmeobahlro"]
+
+[ext_resource type="Shader" path="res://assets/skins/character_shader.gdshader" id="1_uq0xx"]
+[ext_resource type="Texture2D" uid="uid://d38hyhg58njil" path="res://assets/skins/bee_bot/textures/bee_bot_bee_albedo.png" id="2_16lqo"]
+[ext_resource type="Texture2D" uid="uid://dixc0lh2lcgay" path="res://assets/skins/bee_bot/textures/bee_bot_bee_normal.png" id="3_8wcdc"]
+[ext_resource type="Texture2D" uid="uid://c1881i5kfn2hy" path="res://assets/skins/bee_bot/textures/bee_bot_bee_roughness.png" id="4_u6x2m"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_uq0xx")
+shader_parameter/base_roughness = 1.0
+shader_parameter/rim_light_color = Color(1, 0.65098, 0, 0.501961)
+shader_parameter/rim_light_intensity = 1.0
+shader_parameter/emission_color = Color(0, 0, 0, 0)
+shader_parameter/emission_intensity = 0.0
+shader_parameter/albedo_sampler = ExtResource("2_16lqo")
+shader_parameter/roughness_sampler = ExtResource("4_u6x2m")
+shader_parameter/normal_sampler = ExtResource("3_8wcdc")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://car1r4y407q0u"]
+
+[ext_resource type="Script" path="res://lessons_reference/030_patrol_alert_attack/mobs/beetle/mob_beetle.gd" id="1_mmrih"]
+[ext_resource type="PackedScene" uid="uid://bom11xtbtsxv3" path="res://assets/skins/beetle/beetle_skin.tscn" id="2_swmku"]
+[ext_resource type="Script" path="res://assets/hit_box_3d.gd" id="3_4xxl4"]
+[ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="4_apa0f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d4heu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jpvid"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jsn6p"]
+height = 1.0
+radius = 0.9
+
+[node name="MobBeetle" type="CharacterBody3D" node_paths=PackedStringArray("skin", "hurt_box", "debug_label")]
+top_level = true
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_mmrih")
+skin = NodePath("BeetleSkin")
+hurt_box = NodePath("HurtBox3D")
+debug_label = NodePath("Label3D")
+max_health = 6
+damage = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01581, -0.1)
+shape = SubResource("CylinderShape3D_d4heu")
+
+[node name="BeetleSkin" parent="." instance=ExtResource("2_swmku")]
+
+[node name="HitBox3D" type="Area3D" parent="BeetleSkin"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.00271, 0.649438)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_4xxl4")
+damage_source = 2
+detected_hurtboxes = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeetleSkin/HitBox3D"]
+shape = SubResource("CylinderShape3D_jpvid")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71747, 0)
+billboard = 1
+text = "Test"
+font_size = 48
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("4_apa0f")
+hurtbox_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_jsn6p")

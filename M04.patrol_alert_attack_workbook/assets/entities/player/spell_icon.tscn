@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://4rqka7p6sjpx"]
+
+[ext_resource type="Texture2D" uid="uid://cprrje1t076ta" path="res://icon.png" id="1_wvdb3"]
+[ext_resource type="Script" path="res://assets/entities/player/spell_icon.gd" id="2_yabsl"]
+
+[node name="SpellIcon" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wvdb3")
+expand_mode = 1
+script = ExtResource("2_yabsl")

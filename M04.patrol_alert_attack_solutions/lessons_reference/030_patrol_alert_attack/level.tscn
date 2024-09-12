@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://cruux0u70o8gu"]
+
+[ext_resource type="Script" path="res://lessons_reference/030_patrol_alert_attack/level.gd" id="1_7re7v"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="2_yiyps"]
+[ext_resource type="PackedScene" uid="uid://bykg04g4jr07j" path="res://assets/entities/player/player_3d.tscn" id="3_h2mil"]
+[ext_resource type="PackedScene" uid="uid://ddykb7oupr1ji" path="res://lessons_reference/020_states_for_dummies/mob_dummy_3d.tscn" id="4_88or5"]
+[ext_resource type="Script" path="res://lessons_reference/030_patrol_alert_attack/player_3d_with_blackboard.gd" id="4_y3o7u"]
+[ext_resource type="PackedScene" uid="uid://car1r4y407q0u" path="res://lessons_reference/030_patrol_alert_attack/mobs/beetle/mob_beetle.tscn" id="5_7ar8t"]
+[ext_resource type="PackedScene" uid="uid://7dvcmq6ndgcg" path="res://lessons_reference/030_patrol_alert_attack/mobs/bee_bot/mob_bee.tscn" id="6_xbpwu"]
+[ext_resource type="PackedScene" uid="uid://bij84ol81kcts" path="res://assets/level/kill_plane_3d.tscn" id="7_uge1h"]
+
+[sub_resource type="Environment" id="Environment_s26vl"]
+background_mode = 1
+background_color = Color(0.1, 0.1, 0.1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.75, 0.75, 0.75, 1)
+ambient_light_sky_contribution = 0.0
+tonemap_mode = 2
+glow_normalized = true
+glow_bloom = 0.05
+fog_enabled = true
+fog_light_color = Color(0.14902, 0.14902, 0.14902, 1)
+fog_density = 0.0
+fog_sky_affect = 0.5
+fog_height = -1.0
+fog_height_density = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7des4"]
+albedo_color = Color(0.439062, 0.439062, 0.439062, 1)
+albedo_texture = ExtResource("2_yiyps")
+uv1_triplanar = true
+
+[node name="Level" type="Node"]
+script = ExtResource("1_7re7v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+light_energy = 1.25
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 40.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s26vl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+use_collision = true
+collision_layer = 8
+collision_mask = 0
+size = Vector3(15, 14, 15)
+material = SubResource("StandardMaterial3D_7des4")
+
+[node name="KillPlane3D" parent="." instance=ExtResource("7_uge1h")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+collision_layer = 0
+
+[node name="Player3D" parent="." instance=ExtResource("3_h2mil")]
+script = ExtResource("4_y3o7u")
+die_vfx_scene = null
+
+[node name="Camera3D" type="Camera3D" parent="Player3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 18.3777, 17.6777)
+current = true
+fov = 25.0
+size = 12.555
+near = 15.0
+far = 100.0
+
+[node name="DummyMob3D" parent="." instance=ExtResource("4_88or5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48748, 0, -4.19627)
+
+[node name="MobBeetle" parent="." instance=ExtResource("5_7ar8t")]
+transform = Transform3D(0.522514, 0, 0.852631, 0, 1, 0, -0.852631, 0, 0.522514, -3.8613, 0, -1.50865)
+
+[node name="MobBeetle2" parent="." instance=ExtResource("5_7ar8t")]
+transform = Transform3D(0.297358, 0, -0.954766, 0, 1, 0, 0.954766, 0, 0.297358, 5.30209, 0.031292, -0.955223)
+
+[node name="DummyMob3D2" parent="." instance=ExtResource("4_88or5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="MobBee" parent="." instance=ExtResource("6_xbpwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.80319)

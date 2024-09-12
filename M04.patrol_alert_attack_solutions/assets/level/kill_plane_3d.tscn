@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bij84ol81kcts"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bfwmc"]
+
+[node name="KillPlane3D" type="Area3D"]
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("WorldBoundaryShape3D_bfwmc")

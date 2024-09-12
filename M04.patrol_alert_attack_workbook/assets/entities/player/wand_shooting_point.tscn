@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://6asfjx5e15q4"]
+
+[ext_resource type="Script" path="res://assets/entities/player/wand_shooter.gd" id="1_sudwe"]
+[ext_resource type="PackedScene" uid="uid://4rqka7p6sjpx" path="res://assets/entities/player/spell_icon.tscn" id="2_kexxr"]
+[ext_resource type="Texture2D" uid="uid://c26q2n2anpiwf" path="res://assets/icons/fire_ball_icon.png" id="3_kl5o5"]
+[ext_resource type="Texture2D" uid="uid://dj2swwe8rcbcv" path="res://assets/icons/ice_spikes_icon.png" id="4_euatu"]
+
+[node name="WandShootingPoint" type="Node3D"]
+script = ExtResource("1_sudwe")
+max_bullet_speed = 10.0
+fire_rate = 5.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="WandOffset" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpellsListNode" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -72.0
+offset_right = 50.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="FireBallIcon" parent="CanvasLayer/UI/SpellsListNode" instance=ExtResource("2_kexxr")]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_kl5o5")
+
+[node name="IceSpikesIcon" parent="CanvasLayer/UI/SpellsListNode" instance=ExtResource("2_kexxr")]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_euatu")

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://bykg04g4jr07j"]
+
+[ext_resource type="Script" path="res://assets/entities/player/player_3d.gd" id="1_sbw63"]
+[ext_resource type="PackedScene" path="res://assets/vfx/smoke_vfx/smoke_explosion.tscn" id="2_r4ice"]
+[ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://assets/skins/gobot/gobot_skin_3d.tscn" id="3_rjkap"]
+[ext_resource type="PackedScene" uid="uid://6asfjx5e15q4" path="res://assets/entities/player/wand_shooting_point.tscn" id="4_rwavh"]
+[ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="5_slmey"]
+[ext_resource type="PackedScene" uid="uid://cce7r30dfjm4r" path="res://assets/entities/player/health_bar/health_bar_ui.tscn" id="6_ntdjh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7x3c3"]
+height = 1.0
+radius = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y16nc"]
+height = 0.770487
+radius = 0.222565
+
+[node name="Player3D" type="CharacterBody3D"]
+top_level = true
+collision_mask = 14
+floor_constant_speed = true
+script = ExtResource("1_sbw63")
+max_health = 3
+die_vfx_scene = ExtResource("2_r4ice")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_7x3c3")
+
+[node name="GobotSkin3D" parent="." instance=ExtResource("3_rjkap")]
+unique_name_in_owner = true
+
+[node name="Wand" parent="GobotSkin3D" instance=ExtResource("4_rwavh")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451245, -0.676768)
+max_range = 8.0
+max_projectile_speed = 12.0
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76837e-07, 28)
+current = true
+fov = 25.0
+size = 12.555
+near = 15.0
+far = 100.0
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+script = ExtResource("5_slmey")
+damage_source = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CylinderShape3D_y16nc")
+
+[node name="HealthBarUI" parent="." instance=ExtResource("6_ntdjh")]
+unique_name_in_owner = true
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 42.725
