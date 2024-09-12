@@ -1,10 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://ipk6pf4uekva"]
+[gd_scene load_steps=17 format=3 uid="uid://ipk6pf4uekva"]
 
 [ext_resource type="Script" path="res://level/game.gd" id="1_6gii1"]
 [ext_resource type="Shader" path="res://shared/shaders/sky.gdshader" id="2_cqmds"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://player/player_3d.tscn" id="3_crpxi"]
 [ext_resource type="PackedScene" uid="uid://ccpkxlkt3agdp" path="res://player/camera_controller.tscn" id="4_yrq4l"]
 [ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://player/gdbot_skin.tscn" id="5_yqsag"]
+[ext_resource type="PackedScene" uid="uid://chlf6nn4qt7ta" path="res://level/platforms/platform_goal.tscn" id="6_xrio2"]
+[ext_resource type="PackedScene" uid="uid://c6uew1wfpkt16" path="res://level/interactable/flag/flag_3d.tscn" id="7_u25vy"]
+[ext_resource type="PackedScene" uid="uid://j2ksih2r28a3" path="res://level/platforms/platform_short_ramp.tscn" id="8_j7l4q"]
+[ext_resource type="PackedScene" uid="uid://c7uelyqccwh6p" path="res://level/interactable/moving_platform/moving_platform_3d.tscn" id="9_7qrjq"]
+[ext_resource type="PackedScene" uid="uid://b38vahcwqubi0" path="res://level/platforms/platform_tiny.tscn" id="10_j0y4u"]
+[ext_resource type="PackedScene" uid="uid://b3122fl2rw71t" path="res://level/interactable/lever/lever_3d.tscn" id="11_fdsp6"]
 
 [sub_resource type="Curve" id="Curve_vfy0b"]
 _data = [Vector2(0.2, 0), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 2.0, 0.0, 1, 0]
@@ -59,3 +65,27 @@ skin_scene = ExtResource("5_yqsag")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 use_collision = true
 size = Vector3(10, 20, 10)
+
+[node name="PlatformGoal" parent="." instance=ExtResource("6_xrio2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 28)
+
+[node name="Flag3D" parent="." instance=ExtResource("7_u25vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 41)
+
+[node name="PlatformShortRamp" parent="." instance=ExtResource("8_j7l4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="MovingPlatform3D" parent="." node_paths=PackedStringArray("linked_lever", "end_marker") instance=ExtResource("9_7qrjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 13.5)
+linked_lever = NodePath("../Lever3D")
+end_marker = NodePath("../Marker3D")
+
+[node name="PlatformTiny" parent="." instance=ExtResource("10_j0y4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -8.5, 20)
+
+[node name="Lever3D" parent="." instance=ExtResource("11_fdsp6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 20)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 26.5)
+gizmo_extents = 1.0
