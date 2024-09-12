@@ -1,124 +1,5 @@
-2024-09-12T13:58:04:INFO: { "OS": "macOS", "video_adapter_driver_info": [], "screen_size": (2560, 1440), "screen_dpi": 109, "screen_scale": 1, "cores": 8, "locale": "en_US" }
-2024-09-12T13:58:04:INFO: [step_commands: 0]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-
-2024-09-12T13:58:54:INFO: [step_commands: 1]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-
-2024-09-12T13:59:22:INFO: [step_commands: 2]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-
-2024-09-12T14:01:05:INFO: [step_commands: 3]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-
-2024-09-12T14:01:21:INFO: [step_commands: 4]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-
-2024-09-12T14:01:29:INFO: [step_commands: 5]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-
-2024-09-12T14:01:40:INFO: [step_commands: 6]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-
-2024-09-12T14:02:03:INFO: [step_commands: 7]
-Godot Engine v4.2.2.stable.official (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
-  modules/gltf/register_types.cpp:63 - Blend file import is enabled in the project settings, but no Blender path is configured in the editor settings. Blend files will not be imported.
---- Debug adapter server started ---
---- GDScript language server started on port 6005 ---
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-Set is_active
-
-2024-09-12T14:03:32:INFO: [step_commands: 8]
-Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
-Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
- 
---- Debugging process stopped ---
-
-2024-09-12T14:03:39:INFO: [step_commands: 9]
+2024-09-12T14:13:19:INFO: { "OS": "macOS", "video_adapter_driver_info": [], "screen_size": (2560, 1440), "screen_dpi": 109, "screen_scale": 1, "cores": 8, "locale": "en_US" }
+2024-09-12T14:13:19:INFO: [step_commands: 0]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -126,7 +7,7 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:03:50:INFO: [step_commands: 10]
+2024-09-12T14:13:57:INFO: [step_commands: 1]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -136,7 +17,7 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:04:25:INFO: [step_commands: 11]
+2024-09-12T14:14:24:INFO: [step_commands: 2]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -147,9 +28,8 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
 
-2024-09-12T14:04:43:INFO: [step_commands: 12]
+2024-09-12T14:14:54:INFO: [step_commands: 3]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -160,13 +40,12 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
 
-2024-09-12T14:05:24:INFO: [step_commands: 13]
+2024-09-12T14:15:11:INFO: [step_commands: 4]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -177,15 +56,14 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:05:43:INFO: [step_commands: 14]
+2024-09-12T14:15:52:INFO: [step_commands: 5]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -196,18 +74,16 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set skin_scene
 
-2024-09-12T14:05:50:INFO: [step_commands: 15]
+2024-09-12T14:16:06:INFO: [step_commands: 6]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -218,20 +94,20 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set skin_scene
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
 
-2024-09-12T14:06:04:INFO: [step_commands: 16]
+2024-09-12T14:16:39:INFO: [step_commands: 7]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -242,22 +118,22 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set skin_scene
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:06:35:INFO: [step_commands: 17]
+2024-09-12T14:16:56:INFO: [step_commands: 8]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -268,25 +144,26 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-Set skin_scene
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-  scene/main/node.cpp:1427 - Adding 'GdbotMesh' as child to 'Skeleton3D' will make owner 'gdbot' inconsistent. Consider unsetting the owner beforehand.
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
 
-2024-09-12T14:07:13:INFO: [step_commands: 18]
+2024-09-12T14:17:14:INFO: [step_commands: 9]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -297,29 +174,28 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-Set skin_scene
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-  scene/main/node.cpp:1427 - Adding 'GdbotMesh' as child to 'Skeleton3D' will make owner 'gdbot' inconsistent. Consider unsetting the owner beforehand.
+Set albedo_color
+Set albedo_color
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:07:18:INFO: [step_commands: 19]
+2024-09-12T14:17:39:INFO: [step_commands: 10]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -330,33 +206,33 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-Set skin_scene
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-  scene/main/node.cpp:1427 - Adding 'GdbotMesh' as child to 'Skeleton3D' will make owner 'gdbot' inconsistent. Consider unsetting the owner beforehand.
+Set albedo_color
+Set albedo_color
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
 
-2024-09-12T14:07:38:INFO: [step_commands: 20]
+2024-09-12T14:17:56:INFO: [step_commands: 11]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -367,60 +243,35 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set position
-Set position
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-Set skin_scene
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-  scene/main/node.cpp:1427 - Adding 'GdbotMesh' as child to 'Skeleton3D' will make owner 'gdbot' inconsistent. Consider unsetting the owner beforehand.
+Set albedo_color
+Set albedo_color
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-Set camera_controller_scene
-
-2024-09-12T14:09:47:INFO: [step_commands: 21]
-Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
-Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
- 
---- Debugging process stopped ---
-
-2024-09-12T14:10:07:INFO: [step_commands: 22]
-Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
-Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
- 
---- Debugging process stopped ---
+Set albedo_color
+Set albedo_color
+Set albedo_color
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:10:23:INFO: [step_commands: 21]
-Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
-Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
- 
---- Debugging process stopped ---
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
-  If you want to set size, change the anchors or consider using set_deferred().
-
-2024-09-12T14:10:28:INFO: [step_commands: 22]
+2024-09-12T14:18:10:INFO: [step_commands: 12]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -431,9 +282,37 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:10:36:INFO: [step_commands: 23]
+2024-09-12T14:18:33:INFO: [step_commands: 13]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -444,11 +323,39 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:10:50:INFO: [step_commands: 24]
+2024-09-12T14:18:58:INFO: [step_commands: 14]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -459,13 +366,42 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
 
-2024-09-12T14:11:32:INFO: [step_commands: 25]
+2024-09-12T14:19:14:INFO: [step_commands: 15]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -476,20 +412,44 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
 
-2024-09-12T14:11:57:INFO: [step_commands: 26]
+2024-09-12T14:19:45:INFO: [step_commands: 16]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -500,25 +460,50 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
+Set albedo_color
+Set albedo_color
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set size
-Set size
-Set size
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set roughness
+Set roughness
+Set roughness
+Set roughness
 
-2024-09-12T14:12:18:INFO: [step_commands: 27]
+2024-09-12T14:20:13:INFO: [step_commands: 17]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
@@ -529,46 +514,343 @@ Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Create Node
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
-Change Box Shape Size
+Set albedo_color
+Set albedo_color
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set size
-Set size
-Set size
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-  scene/3d/node_3d.cpp:343 - Condition "!is_inside_tree()" is true. Returning: Transform3D()
-Translate
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set roughness
+Set roughness
+Set roughness
+Set roughness
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic
+Set metallic
+Set metallic
+Set metallic
 
-2024-09-12T14:12:31:INFO: [step_commands: 28]
+2024-09-12T14:24:00:INFO: [step_commands: 18]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
 --- Debugging process stopped ---
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set roughness
+Set roughness
+Set roughness
+Set roughness
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic
+Set metallic
+Set metallic
+Set metallic
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
 
-2024-09-12T14:12:46:INFO: [step_commands: 29]
+2024-09-12T14:24:36:INFO: [step_commands: 19]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
 --- Debugging process stopped ---
   scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
   If you want to set size, change the anchors or consider using set_deferred().
-Set use_collision
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set roughness
+Set roughness
+Set roughness
+Set roughness
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic
+Set metallic
+Set metallic
+Set metallic
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_triplanar
 
-2024-09-12T14:13:10:INFO: [step_commands: 30]
+2024-09-12T14:24:45:INFO: [step_commands: 20]
 Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
 Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
  
 --- Debugging process stopped ---
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set roughness
+Set roughness
+Set roughness
+Set roughness
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic
+Set metallic
+Set metallic
+Set metallic
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_triplanar
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+
+2024-09-12T14:25:34:INFO: [step_commands: 21]
+Godot Engine v4.2.2.stable.official.15073afe3 - https://godotengine.org
+Vulkan API 1.2.231 - Forward Mobile - Using Vulkan Device #0: Apple - Apple M1
+ 
+--- Debugging process stopped ---
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Material.svg (expected type: Texture2D)
+Set material
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  Resource file not found: res://addons/godot_tours/bubble/assets/icons/Texture.svg (expected type: Texture2D)
+Set albedo_texture
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_color
+Set albedo_color
+Set albedo_color
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set roughness
+Set roughness
+Set roughness
+Set roughness
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic
+Set metallic
+Set metallic
+Set metallic
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
+Set metallic_specular
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_triplanar
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set uv1_scale
+  scene/gui/control.cpp:1442 - Nodes with non-equal opposite anchors will have their size overridden after _ready(). 
+  If you want to set size, change the anchors or consider using set_deferred().
+Set albedo_texture_force_srgb
+Set albedo_texture_force_srgb
+Set albedo_texture_force_srgb
+Set albedo_color
+Set albedo_color
+Set metallic_specular
+Set metallic
+Set metallic
+Set roughness
+Set roughness
 
