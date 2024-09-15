@@ -1,4 +1,4 @@
-extends Node3D
+extends ProjectileSkin3D
 
 @onready var animation_player = %AnimationPlayer
 @onready var ice_spikes = %IceSpikes

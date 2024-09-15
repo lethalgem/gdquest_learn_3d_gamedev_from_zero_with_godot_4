@@ -27,7 +27,8 @@ func shoot() -> void:
 	owner.add_sibling(projectile)
 	_timer.start()
 	projectile.global_transform = global_transform
-	projectile.max_range = max_range
-	projectile.speed = max_projectile_speed
+	if projectile is MovingProjectile3D:
+		projectile.max_range = max_range
+		projectile.speed = max_projectile_speed
 	var angle := randf_range(-max_random_angle / 2.0, max_random_angle / 2.0)
 	projectile.rotate_y(angle)

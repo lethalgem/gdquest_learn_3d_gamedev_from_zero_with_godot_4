@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://qqaaoqn8i2lq"]
+
+[ext_resource type="Script" path="res://lessons/static_projectile_3d.gd" id="1_pwrx3"]
+[ext_resource type="PackedScene" uid="uid://s7nj1a3i2m1m" path="res://assets/vfx/ice_spikes/ice_spikes.tscn" id="2_bcrat"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bjf8c"]
+radius = 3.0
+
+[node name="StaticProjectile3D" type="Area3D"]
+script = ExtResource("1_pwrx3")
+projectile_vfx = ExtResource("2_bcrat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+shape = SubResource("SphereShape3D_bjf8c")

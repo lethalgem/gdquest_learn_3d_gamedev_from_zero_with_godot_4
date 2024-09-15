@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://s6sp4vgxno07"]
+
+[ext_resource type="Script" path="res://lessons/moving_projectile_3d.gd" id="1_bb6jf"]
+[ext_resource type="PackedScene" uid="uid://caxbqhwe5nxb3" path="res://assets/vfx/fireball/fireball.tscn" id="2_tph6f"]
+[ext_resource type="PackedScene" uid="uid://232aww8oks7n" path="res://assets/vfx/fireball/fireball_impact.tscn" id="3_dagpa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vpxff"]
+radius = 0.3
+
+[node name="MovingProjectile3D" type="Area3D"]
+script = ExtResource("1_bb6jf")
+impact_vfx = ExtResource("3_dagpa")
+projectile_vfx = ExtResource("2_tph6f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_vpxff")
