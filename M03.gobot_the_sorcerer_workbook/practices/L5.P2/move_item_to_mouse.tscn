@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://dcba81qf51yx3"]
 
 [ext_resource type="Script" path="res://practices/L5.P2/move_item_to_mouse.gd" id="1_t330a"]
-[ext_resource type="Texture2D" path="res://assets/level/checkboard.png" id="2_o80xx"]
-[ext_resource type="PackedScene" path="res://assets/background.tscn" id="3_35mye"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="2_o80xx"]
+[ext_resource type="PackedScene" uid="uid://bosa48x4gwq0k" path="res://assets/background.tscn" id="3_35mye"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ti06"]
 albedo_color = Color(0.870588, 0.313726, 0.168627, 1)
@@ -38,5 +38,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.4
 mesh = SubResource("BoxMesh_ndc45")
 skeleton = NodePath("../..")
 
-[node name="Background" type="Node3D" parent="." instance=ExtResource("3_35mye")]
-top_level = true
+[node name="Background" parent="." instance=ExtResource("3_35mye")]

@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	position += motion
 
 	traveled_distance += distance
-	
+
 	if traveled_distance > max_range:
 		set_physics_process(false)
 		visual.destroy()

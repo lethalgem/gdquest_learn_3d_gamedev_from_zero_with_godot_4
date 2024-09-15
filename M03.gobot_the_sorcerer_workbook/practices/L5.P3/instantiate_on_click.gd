@@ -18,6 +18,10 @@ func _physics_process(delta: float) -> void:
 		mouse_position_2d = get_viewport().get_mouse_position()
 		mouse_ray = _camera_3d.project_ray_normal(mouse_position_2d)
 		world_mouse_position = _world_plane.intersects_ray(_camera_3d.global_position, mouse_ray)
-		
+
 		# Preload the box scene file, instantiate it, add it as a child of this
 		# node, and set its global position to the projected mouse position.
+		var box = preload("res://practices/L5.P3/box.tscn")
+		var instantiated_box = box.instantiate()
+		add_child(instantiated_box)
+		instantiated_box.global_position = world_mouse_position

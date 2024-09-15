@@ -1,19 +1,14 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://w6p0fg6yrnyy"]
 
-[ext_resource type="PackedScene" path="res://assets/background.tscn" id="1_48w0f"]
+[ext_resource type="PackedScene" uid="uid://bosa48x4gwq0k" path="res://assets/background.tscn" id="1_48w0f"]
 [ext_resource type="PackedScene" path="res://practices/L7.P1/bullet.tscn" id="2_y6q2e"]
-[ext_resource type="Script" path="res://practices/L6.P1/bullet.gd" id="3_xk3r1"]
-[ext_resource type="PackedScene" path="res://practices/L6.P1/bullet_skin.tscn" id="4_unrqf"]
 
 [node name="ProjectileMovement" type="Node3D"]
 
-[node name="Background" type="Node3D" parent="." instance=ExtResource("1_48w0f")]
-top_level = true
+[node name="Background" parent="." instance=ExtResource("1_48w0f")]
 
-[node name="Bullet" type="Area3D" parent="." instance=ExtResource("2_y6q2e")]
+[node name="Bullet" parent="." instance=ExtResource("2_y6q2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.808748, 4)
-script = ExtResource("3_xk3r1")
-bullet_skin_scene = ExtResource("4_unrqf")
 
 [node name="CameraAnchor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.7, 0)

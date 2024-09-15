@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://ds2kwqklpyfod"]
 
 [ext_resource type="Script" path="res://practices/L5.P3/instantiate_on_click.gd" id="1_stnxn"]
-[ext_resource type="PackedScene" path="res://assets/background.tscn" id="2_ei574"]
+[ext_resource type="PackedScene" uid="uid://bosa48x4gwq0k" path="res://assets/background.tscn" id="2_ei574"]
 
 [node name="InstantiateOnClick" type="Node3D"]
 top_level = true
@@ -19,5 +19,4 @@ size = 12.555
 near = 15.0
 far = 100.0
 
-[node name="Background" type="Node3D" parent="." instance=ExtResource("2_ei574")]
-top_level = true
+[node name="Background" parent="." instance=ExtResource("2_ei574")]

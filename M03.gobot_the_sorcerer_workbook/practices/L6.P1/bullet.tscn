@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://i50qlfrl8lqr"]
 
 [ext_resource type="Script" path="res://practices/L6.P1/bullet.gd" id="1_qt3ch"]
 
@@ -7,7 +7,6 @@ radius = 0.2
 
 [node name="Bullet" type="Area3D"]
 script = ExtResource("1_qt3ch")
-bullet_skin_scene = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_icj8y")

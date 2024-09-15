@@ -1,22 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://btasidk63wqgu"]
+[gd_scene load_steps=5 format=3 uid="uid://btasidk63wqgu"]
 
+[ext_resource type="Script" path="res://lessons/player_3d.gd" id="1_g50kn"]
 [ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://assets/skins/gobot/gobot_skin_3d.tscn" id="1_lte1i"]
+[ext_resource type="PackedScene" uid="uid://c8fbra4b730n4" path="res://lessons/wand.tscn" id="3_82xkh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_laqfx"]
 height = 1.0
 radius = 0.4
 
 [node name="Player3D" type="CharacterBody3D"]
+script = ExtResource("1_g50kn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_laqfx")
 
 [node name="GobotSkin3D" parent="." instance=ExtResource("1_lte1i")]
+unique_name_in_owner = true
+
+[node name="Wand" parent="GobotSkin3D" instance=ExtResource("3_82xkh")]
 
 [node name="CameraAnchor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.8, 0)
+transform = Transform3D(1, -5.95417e-16, 2.4663e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 0, 0.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.8, 28)
 fov = 25.0

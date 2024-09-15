@@ -26,7 +26,7 @@ func destroy() -> void:
 	_fire_particles.emitting = false
 	_smoke_particles.emitting = false
 	_magic_sparks.emitting = false
-	
+
 	var tween := create_tween()
 	tween.tween_property(_core, "scale", Vector3.ZERO, 0.25)
 	tween.tween_interval(1.0)
