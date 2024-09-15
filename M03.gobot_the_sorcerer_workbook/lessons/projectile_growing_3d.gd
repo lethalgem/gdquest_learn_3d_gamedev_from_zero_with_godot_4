@@ -7,8 +7,8 @@ class_name Projectile3D extends Area3D
 var speed := 10.0
 ## The maximum range of the projectile in meters.
 var max_range := 10.0
-## The rate of acceleration in meters per second^2.
-var acceleration := 10.0
+## The maximum scale the projectile can grow to.
+var max_scale := 5
 
 # The distance the project has traveled so far.
 var _traveled_distance := 0.0
@@ -40,8 +40,11 @@ func set_projectile_vfx(new_projectile_scene: PackedScene) -> void:
 	add_child(_visual)
 	_visual.appear()
 
+var t = 0.0
+
 func _physics_process(delta: float) -> void:
-	var distance := speed * delta +  acceleration * delta
+	t += delta
+	var distance := speed * delta
 	var motion := -transform.basis.z * distance
 
 	position += motion
@@ -49,6 +52,8 @@ func _physics_process(delta: float) -> void:
 	_traveled_distance += distance
 	if _traveled_distance > max_range:
 		_destroy()
+
+	scale = Vector3(1.0, 1.0, 1.0).lerp(Vector3(1.0, 1.0, 1.0) * max_scale, t)
 
 func _destroy() -> void:
 	set_physics_process(false)

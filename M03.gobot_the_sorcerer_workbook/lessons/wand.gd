@@ -4,7 +4,7 @@ extends Marker3D
 ## shots per second
 @export_range(0.1, 20.0, 0.05) var fire_rate: float = 3.0: set = set_fire_rate
 @export_range(5.0, 100.0, 0.1) var max_projectile_speed := 12.0
-@export_range(0.0, 90.0, 0.1) var max_projectile_acceleration := 10.0
+@export_range(1.0, 10.0, 0.1) var max_projectile_scale := 2.0
 @export_range(2.0, 40.0, 0.1) var max_range := 12.0
 @export_range(0.0, 90.0, 0.1, "radians_as_degrees") var max_random_angle := PI / 10.0
 
@@ -30,6 +30,6 @@ func shoot() -> void:
 	projectile.global_transform = global_transform
 	projectile.max_range = max_range
 	projectile.speed = max_projectile_speed
-	projectile.acceleration = max_projectile_acceleration
+	projectile.max_scale = max_projectile_scale
 	var angle := randf_range(-max_random_angle / 2.0, max_random_angle / 2.0)
 	projectile.rotate_y(angle)

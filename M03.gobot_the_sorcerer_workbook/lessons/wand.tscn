@@ -1,12 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8fbra4b730n4"]
 
 [ext_resource type="Script" path="res://lessons/wand.gd" id="1_v420d"]
-[ext_resource type="PackedScene" uid="uid://chgh3e710wnln" path="res://lessons/projectile_accelerated_3d.tscn" id="2_y2ump"]
+[ext_resource type="PackedScene" uid="uid://cbywcasuwksjb" path="res://lessons/projectile_growing_3d.tscn" id="2_b3l6x"]
 
 [node name="Wand" type="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.7)
 script = ExtResource("1_v420d")
-projectile_scene = ExtResource("2_y2ump")
+projectile_scene = ExtResource("2_b3l6x")
+max_projectile_speed = 6.5
+max_projectile_scale = 8.0
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
