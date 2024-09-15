@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://byl6p3ebtycnw"]
+
+[ext_resource type="Script" path="res://lessons/mob_3d.gd" id="1_h4gr2"]
+[ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="1_iooay"]
+[ext_resource type="Script" path="res://lessons/hurt_box_3d.gd" id="2_fys30"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uuuko"]
+radius = 0.25
+height = 1.0
+
+[node name="Mob3D" type="CharacterBody3D"]
+script = ExtResource("1_h4gr2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_uuuko")
+
+[node name="DummySkin" parent="." instance=ExtResource("1_iooay")]
+unique_name_in_owner = true
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_fys30")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+shape = SubResource("CapsuleShape3D_uuuko")

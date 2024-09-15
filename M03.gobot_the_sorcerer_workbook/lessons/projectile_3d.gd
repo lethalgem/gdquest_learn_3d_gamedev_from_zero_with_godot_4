@@ -1,7 +1,8 @@
 @tool
-class_name Projectile3D extends Area3D
+class_name Projectile3D extends HitBox3D
 
 @export var projectile_vfx: PackedScene = null: set = set_projectile_vfx
+@export var impact_vfx: PackedScene = null
 
 ## The speed of the projectile in meters per second.
 var speed := 10.0
@@ -17,6 +18,7 @@ func _ready() -> void:
 	set_projectile_vfx(projectile_vfx)
 	if Engine.is_editor_hint():
 		set_physics_process(false)
+	hit_hurt_box.connect(_on_hit)
 
 func set_projectile_vfx(new_projectile_scene: PackedScene) -> void:
 	projectile_vfx = new_projectile_scene
@@ -52,3 +54,11 @@ func _destroy() -> void:
 	set_physics_process(false)
 	_visual.destroy()
 	_visual.tree_exited.connect(queue_free)
+	hit_hurt_box.disconnect(_on_hit)
+
+func _on_hit(_node: Node3D):
+	var impact: Node3D = impact_vfx.instantiate()
+	impact.transform = transform
+	add_sibling(impact)
+
+	_destroy()

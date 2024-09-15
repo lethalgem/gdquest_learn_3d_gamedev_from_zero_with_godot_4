@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw2yiha2nkuw1"]
+[gd_scene load_steps=6 format=3 uid="uid://bw2yiha2nkuw1"]
 
 [ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="1_2crmm"]
 [ext_resource type="PackedScene" uid="uid://btasidk63wqgu" path="res://lessons/player_3d.tscn" id="1_q71cl"]
+[ext_resource type="PackedScene" uid="uid://byl6p3ebtycnw" path="res://lessons/mob_3d.tscn" id="3_efw0m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4j8s"]
 albedo_color = Color(0.76662, 0.76662, 0.76662, 1)
@@ -40,3 +41,6 @@ directional_shadow_max_distance = 40.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4tdqj")
+
+[node name="Mob3D" parent="." instance=ExtResource("3_efw0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
