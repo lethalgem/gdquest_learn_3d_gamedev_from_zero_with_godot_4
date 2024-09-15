@@ -1,6 +1,7 @@
 extends CharacterBody3D
 @onready var _gobot_skin_3d: GobotSkin3D = %GobotSkin3D
 @onready var _camera_3d: Camera3D = %Camera3D
+@onready var _hurt_box_3d: HurtBox3D = %HurtBox3D
 
 ## The maximum speed the player can move at in meters per second.
 @export_range(3.0, 12.0, 0.1) var max_speed := 6.0
@@ -10,6 +11,11 @@ extends CharacterBody3D
 ## Represents the game world's ground plane. Used to cast a ray from the
 ## camera to get the mouse position in 3D space.
 var _world_plane := Plane(Vector3.UP)
+
+func _ready() -> void:
+	_hurt_box_3d.took_hit.connect(func _on_hurt_box_took_hit(hit_box: HitBox3D) -> void:
+		_gobot_skin_3d.hurt()
+	)
 
 func _physics_process(delta):
 	# Calculate movement based on input and gravity

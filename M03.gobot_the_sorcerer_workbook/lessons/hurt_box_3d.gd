@@ -2,8 +2,6 @@
 @icon("res://assets/icons/hurt_box_3d.svg")
 class_name HurtBox3D extends Area3D
 
-
-
 ## Emitted when the hit box hits a hurt box.
 signal took_hit(hit_box: HitBox3D)
 

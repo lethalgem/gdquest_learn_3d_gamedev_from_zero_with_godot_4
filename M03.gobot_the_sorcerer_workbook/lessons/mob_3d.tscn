@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://byl6p3ebtycnw"]
+[gd_scene load_steps=6 format=3 uid="uid://byl6p3ebtycnw"]
 
 [ext_resource type="Script" path="res://lessons/mob_3d.gd" id="1_h4gr2"]
 [ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="1_iooay"]
 [ext_resource type="Script" path="res://lessons/hurt_box_3d.gd" id="2_fys30"]
+[ext_resource type="Script" path="res://lessons/hit_box_3d.gd" id="4_ixcx5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uuuko"]
 radius = 0.25
@@ -20,7 +21,18 @@ unique_name_in_owner = true
 
 [node name="HurtBox3D" type="Area3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("2_fys30")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+shape = SubResource("CapsuleShape3D_uuuko")
+
+[node name="HitBox3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+collision_layer = 2
+script = ExtResource("4_ixcx5")
+damage_source = 2
+detected_hurtboxes = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D"]
 shape = SubResource("CapsuleShape3D_uuuko")
