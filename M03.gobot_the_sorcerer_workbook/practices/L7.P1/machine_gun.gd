@@ -23,7 +23,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	# Check if the player is pressing the shoot button and the weapon is ready to fire.
 	# If so, shoot a bullet.
-	if Input.is_action_pressed("shoot") and timer.is_stopped() == true:
+	if Input.is_action_just_pressed("shoot") and timer.is_stopped() == true:
 		shoot()
 
 func shoot() -> void:
