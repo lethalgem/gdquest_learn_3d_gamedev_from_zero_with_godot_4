@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5luv0tbdat2c"]
+[gd_scene load_steps=6 format=3 uid="uid://b5luv0tbdat2c"]
 
+[ext_resource type="Script" path="res://lessons/mobs/mob_dummy.gd" id="1_8v0hd"]
 [ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="2_8a1qg"]
 [ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="3_sb476"]
 
@@ -13,6 +14,7 @@ height = 1.0
 top_level = true
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("1_8v0hd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
@@ -28,3 +30,7 @@ script = ExtResource("3_sb476")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_poc1g")
+
+[node name="ShootingPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.8)

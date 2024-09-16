@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://coimsdft40t2l"]
+[gd_scene load_steps=8 format=3 uid="uid://coimsdft40t2l"]
 
 [ext_resource type="Script" path="res://lessons/level.gd" id="1_t3xly"]
 [ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="2_f03ub"]
 [ext_resource type="PackedScene" uid="uid://bykg04g4jr07j" path="res://assets/entities/player/player_3d.tscn" id="3_ifpx3"]
+[ext_resource type="PackedScene" uid="uid://b5luv0tbdat2c" path="res://lessons/mobs/mob_dummy.tscn" id="5_kjpax"]
 [ext_resource type="PackedScene" uid="uid://bij84ol81kcts" path="res://assets/level/kill_plane_3d.tscn" id="7_cwur3"]
 
 [sub_resource type="Environment" id="Environment_s26vl"]
@@ -61,3 +62,6 @@ fov = 25.0
 size = 12.555
 near = 15.0
 far = 100.0
+
+[node name="MobDummy3D" parent="." instance=ExtResource("5_kjpax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
