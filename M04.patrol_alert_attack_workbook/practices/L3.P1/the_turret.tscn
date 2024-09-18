@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://bx3g125wdgvhr"]
 
-[ext_resource type="Texture2D" path="res://assets/level/checkboard.png" id="1_563r1"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="1_563r1"]
 [ext_resource type="PackedScene" path="res://practices/L3.P1/turret.tscn" id="2_7ful1"]
-[ext_resource type="Script" path="res://practices/L3.P1/turret.gd" id="3_56qpi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krn5u"]
 albedo_color = Color(0.439062, 0.439062, 0.439062, 1)
@@ -53,6 +52,5 @@ directional_shadow_max_distance = 40.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jrbi8")
 
-[node name="Turret" type="CharacterBody3D" parent="." instance=ExtResource("2_7ful1")]
+[node name="Turret" parent="." instance=ExtResource("2_7ful1")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2, 0, 0)
-script = ExtResource("3_56qpi")

@@ -5,6 +5,7 @@ signal state_changed(new_state: States)
 
 enum States {
 	WAIT,
+	SHOOT
 }
 
 var bullet_scene: PackedScene = preload("bullet.tscn")
@@ -15,7 +16,7 @@ var current_state: States = States.WAIT: set = set_current_state
 
 func _ready() -> void:
 	# Don't forget to call the setter to initialize to the WAIT state.
-	pass
+	set_current_state(States.WAIT)
 
 
 func set_current_state(new_state: States) -> void:
@@ -28,4 +29,12 @@ func set_current_state(new_state: States) -> void:
 
 	match current_state:
 		States.WAIT:
-			pass
+			get_tree().create_timer(0.7).timeout.connect(
+				set_current_state.bind(States.SHOOT)
+			)
+		States.SHOOT:
+			var bullet = bullet_scene.instantiate()
+			owner.add_sibling(bullet)
+			bullet.global_position = bullet_spawning_point.global_position
+			bullet.look_at(bullet_spawning_point.global_position + bullet_spawning_point.global_basis.z)
+			set_current_state(States.WAIT)
