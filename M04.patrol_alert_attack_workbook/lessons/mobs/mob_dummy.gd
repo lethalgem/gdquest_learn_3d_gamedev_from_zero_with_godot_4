@@ -5,6 +5,7 @@ extends CharacterBody3D
 
 @onready var shooting_point: Marker3D = %ShootingPoint
 @onready var explosion_proximity_3d: Area3D = %ExplosionPromixity3D
+@onready var dummy_skin: MobSkin3D = %DummySkin
 
 enum States {
 	LOOK_AT_PLAYER,
@@ -38,9 +39,16 @@ func set_current_state(new_state: States) -> void:
 				set_current_state.bind(States.LOOK_AT_PLAYER)
 			)
 		States.EXPLODE:
-			# TODO: Animate blinking and scaling before explosion
-			explode()
-			queue_free()
+			var explosion_tween = create_tween()
+			explosion_tween
+			explosion_tween.tween_property(dummy_skin, "red_intensity", 1, 0.5)
+			explosion_tween.tween_property(dummy_skin, "red_intensity", 0, 0.5)
+			explosion_tween.tween_property(dummy_skin, "red_intensity", 1, 0.5)
+			explosion_tween.tween_property(dummy_skin, "red_intensity", 0, 0.5)
+			explosion_tween.chain().tween_property(dummy_skin, "red_intensity", 1, 0.5)
+			explosion_tween.parallel().tween_property(self, "scale", scale * 1.5, 0.5)
+			explosion_tween.play()
+			explosion_tween.finished.connect(explode)
 
 
 var player: CharacterBody3D = null
@@ -76,5 +84,6 @@ func explode():
 	var explosion = explosion_scene.instantiate()
 	owner.add_sibling(explosion)
 	explosion.global_position = global_position
+	queue_free()
 
 
