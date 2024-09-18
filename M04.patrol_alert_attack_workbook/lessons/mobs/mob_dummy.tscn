@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5luv0tbdat2c"]
+[gd_scene load_steps=7 format=3 uid="uid://b5luv0tbdat2c"]
 
+[ext_resource type="Script" path="res://lessons/mobs/mob_dummy.gd" id="1_8v0hd"]
 [ext_resource type="PackedScene" uid="uid://ddjouhm76gjbx" path="res://assets/skins/dummy/dummy_skin_3d.tscn" id="2_8a1qg"]
+[ext_resource type="PackedScene" uid="uid://owdmkemrssa" path="res://assets/entities/projectile/mob_fireball.tscn" id="2_j1r0v"]
 [ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="3_sb476"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqdxk"]
@@ -13,6 +15,8 @@ height = 1.0
 top_level = true
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("1_8v0hd")
+projectile_3d = ExtResource("2_j1r0v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
@@ -28,3 +32,7 @@ script = ExtResource("3_sb476")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_poc1g")
+
+[node name="ShootingPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0.8, 0.8)
