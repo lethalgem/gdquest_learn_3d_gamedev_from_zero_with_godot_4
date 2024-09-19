@@ -34,7 +34,7 @@ func set_current_state(new_state: States) -> void:
 			)
 		States.SHOOT:
 			var bullet = bullet_scene.instantiate()
-			owner.add_sibling(bullet)
+			add_sibling(bullet)
 			bullet.global_position = bullet_spawning_point.global_position
 			bullet.look_at(bullet_spawning_point.global_position + bullet_spawning_point.global_basis.z)
 			set_current_state(States.WAIT)
