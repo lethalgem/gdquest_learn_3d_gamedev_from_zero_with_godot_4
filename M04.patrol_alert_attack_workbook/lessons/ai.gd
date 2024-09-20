@@ -170,11 +170,12 @@ class StateLookAtPlayer extends State:
 
 class StateWait extends State:
 
-	var duration := 0.5
+	var duration = null
 	var _time := 0.0
 
-	func _init(init_mob: Mob3D) -> void:
+	func _init(init_mob: Mob3D, init_duration := 0.5) -> void:
 		super("Wait", init_mob)
+		duration = init_duration
 
 	func enter() -> void:
 		_time = 0.0

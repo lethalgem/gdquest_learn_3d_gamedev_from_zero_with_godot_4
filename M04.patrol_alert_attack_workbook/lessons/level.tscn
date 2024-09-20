@@ -65,9 +65,3 @@ far = 100.0
 
 [node name="MobDummy3D" parent="." instance=ExtResource("5_kjpax")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
-
-[node name="MobDummy3D2" parent="." instance=ExtResource("5_kjpax")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
-
-[node name="MobDummy3D3" parent="." instance=ExtResource("5_kjpax")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, -4)

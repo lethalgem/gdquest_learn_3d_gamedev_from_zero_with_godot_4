@@ -12,6 +12,7 @@ func _ready() -> void:
 
 	const Projectile3DScene = preload("res://assets/entities/projectile/mob_fireball.tscn")
 	var fire_projectile := AI.StateFireProjectile.new(self, shooting_point, Projectile3DScene)
+	var long_wait := AI.StateWait.new(self, 0.75)
 
 	state_machine.transitions = {
 		idle: {
@@ -25,8 +26,11 @@ func _ready() -> void:
 			AI.Events.FINISHED: fire_projectile,
 		},
 		fire_projectile: {
-			AI.Events.FINISHED: look_at_player,
+			AI.Events.FINISHED: long_wait,
 		},
+		long_wait: {
+			AI.Events.FINISHED: look_at_player,
+		}
 	}
 
 	state_machine.activate(idle)
