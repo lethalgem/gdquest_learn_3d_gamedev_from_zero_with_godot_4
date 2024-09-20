@@ -3,6 +3,8 @@ class_name AI extends RefCounted
 enum Events {
 	NONE,
 	FINISHED,
+	PLAYER_ENTERED_LINE_OF_SIGHT,
+	PLAYER_EXITED_LINE_OF_SIGHT,
 }
 
 class State extends RefCounted:
@@ -93,9 +95,11 @@ class StateMachine extends Node:
 	func _transition(new_state: State) -> void:
 		current_state.exit()
 		current_state.finished.disconnect(_on_state_finished)
+		print("exiting: " + current_state.name)
 		current_state = new_state
 		current_state.finished.connect(_on_state_finished.bind(current_state))
 		current_state.enter()
+		print("entering: " + current_state.name)
 
 	func _on_state_finished(finished_state: State) -> void:
 		assert(
@@ -104,3 +108,103 @@ class StateMachine extends Node:
 			"add a transition for this event in the transitions dictionary."
 		)
 		_transition(transitions[finished_state][Events.FINISHED])
+
+class Blackboard extends RefCounted:
+	static var player_global_position := Vector3.ZERO
+
+class StateIdle extends State:
+
+	func _init(init_mob: Mob3D) -> void:
+		super("Idle", init_mob)
+
+	func enter() -> void:
+		mob.skin.play("idle")
+
+	func update(_delta: float) -> Events:
+		var distance: float = mob.global_position.distance_to(Blackboard.player_global_position)
+		if distance > mob.vision_range:
+			return Events.NONE
+
+		var cos_max_angle_of_vision := cos(mob.vision_angle)
+		var direction: Vector3 = mob.global_position.direction_to(Blackboard.player_global_position)
+		var dot: float = mob.global_basis.z.dot(direction)
+
+		var player_in_vision_cone := dot > cos_max_angle_of_vision
+		if player_in_vision_cone:
+			return Events.PLAYER_ENTERED_LINE_OF_SIGHT
+
+		return Events.NONE
+
+class StateLookAtPlayer extends State:
+
+	func _init(init_mob: Mob3D) -> void:
+		super("Look at Player", init_mob)
+
+	var duration := 2.0
+	var _time := 0.0
+
+	func enter() -> void:
+		_time = 0.0
+
+	func update(delta: float) -> Events:
+		_time += delta
+		if _time >= duration:
+			return Events.FINISHED
+
+		var player_distance: float = mob.global_position.distance_to(
+			Blackboard.player_global_position
+		)
+		if player_distance > mob.vision_range:
+			return Events.PLAYER_EXITED_LINE_OF_SIGHT
+
+		var direction: Vector3 = mob.global_position.direction_to(
+			Blackboard.player_global_position
+		)
+		var target_rotation_y := Vector3.FORWARD.signed_angle_to(
+			direction, Vector3.UP
+		) + PI
+		mob.rotation.y = lerp_angle(
+			mob.rotation.y, target_rotation_y, 2.0 * delta
+		)
+		return Events.NONE
+
+class StateWait extends State:
+
+	var duration := 0.5
+	var _time := 0.0
+
+	func _init(init_mob: Mob3D) -> void:
+		super("Wait", init_mob)
+
+	func enter() -> void:
+		_time = 0.0
+		mob.skin.play("idle")
+
+	func update(delta: float) -> Events:
+		_time += delta
+		if _time >= duration:
+			return Events.FINISHED
+		return Events.NONE
+
+class StateFireProjectile extends State:
+
+	var spawning_point: Node3D = null
+	var projectile_scene: PackedScene = null
+
+	func _init(
+		init_mob: Mob3D,
+		init_spawning_point: Node3D,
+		init_projectile_scene: PackedScene
+	) -> void:
+		super("Fire Projectile", init_mob)
+		spawning_point = init_spawning_point
+		projectile_scene = init_projectile_scene
+
+	func enter() -> void:
+		var projectile: Projectile3D = projectile_scene.instantiate()
+		mob.add_sibling(projectile)
+
+		projectile.global_position = spawning_point.global_position
+		projectile.look_at(spawning_point.global_position + spawning_point.global_basis.z)
+
+		finished.emit()
