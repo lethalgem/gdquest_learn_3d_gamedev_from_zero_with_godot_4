@@ -104,3 +104,8 @@ class StateMachine extends Node:
 			"add a transition for this event in the transitions dictionary."
 		)
 		_transition(transitions[finished_state][Events.FINISHED])
+
+class Blackboard extends RefCounted:
+	static var player_global_position := Vector3.ZERO
+
+

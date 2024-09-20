@@ -71,6 +71,8 @@ func _physics_process(delta: float) -> void:
 		var skin_forward_vector := -1.0 * _gobot_skin_3d.global_basis.z
 		_gobot_skin_3d.hips_rotation = skin_forward_vector.signed_angle_to(direction, Vector3.UP)
 
+	AI.Blackboard.player_global_position = global_position
+
 
 ## Reduce the player's health by one and updates the health bar UI. If the health
 ## reaches zero, the player dies.
