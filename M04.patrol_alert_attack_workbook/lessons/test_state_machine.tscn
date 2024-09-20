@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcbgglk6uts4r"]
+
+[ext_resource type="Script" path="res://lessons/test_state_machine.gd" id="1_i6xad"]
+
+[node name="TestStateMachine" type="CharacterBody3D"]
+script = ExtResource("1_i6xad")
