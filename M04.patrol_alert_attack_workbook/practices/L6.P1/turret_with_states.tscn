@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://vjf0om72os0g"]
 
 [ext_resource type="Script" path="res://practices/L6.P1/turret_with_states.gd" id="1_rgvt3"]
 [ext_resource type="PackedScene" path="res://practices/L6.P1/bullet.tscn" id="2_u11ob"]
-[ext_resource type="Texture2D" path="res://assets/level/checkboard.png" id="3_sroob"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="3_sroob"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t5alr"]
 radius = 0.263873
