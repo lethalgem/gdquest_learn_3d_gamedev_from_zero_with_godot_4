@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://blcgk1jocq31n"]
 
-[ext_resource type="Script" path="res://practices/L6.P1/turret_with_states.gd" id="1_w5mth"]
-[ext_resource type="PackedScene" path="res://practices/L6.P1/bullet.tscn" id="2_haiuc"]
-[ext_resource type="Texture2D" path="res://assets/level/checkboard.png" id="3_6rbdb"]
+[ext_resource type="Script" path="res://addons/gdpractice/practice_solutions/L7.P1/mob_follow.gd" id="1_8va3t"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="1_vycvd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t5alr"]
 radius = 0.263873
@@ -10,7 +9,7 @@ height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfbmr"]
 albedo_color = Color(0.552941, 0.0980392, 0.843137, 1)
-albedo_texture = ExtResource("3_6rbdb")
+albedo_texture = ExtResource("1_vycvd")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_qqsgo"]
@@ -20,7 +19,7 @@ rings = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07ntt"]
 albedo_color = Color(1, 0.717647, 0.188235, 1)
-albedo_texture = ExtResource("3_6rbdb")
+albedo_texture = ExtResource("1_vycvd")
 uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_27o5b"]
@@ -110,18 +109,12 @@ _data = {
 "idle": SubResource("Animation_ipi8t")
 }
 
-[node name="TurretWithStates" type="CharacterBody3D" node_paths=PackedStringArray("bullet_spawning_point")]
-script = ExtResource("1_w5mth")
-bullet_spawning_point = NodePath("BulletSpawningPoint")
-bullet_scene = ExtResource("2_haiuc")
+[node name="MobFollow" type="CharacterBody3D"]
+script = ExtResource("1_8va3t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
 shape = SubResource("CapsuleShape3D_t5alr")
-
-[node name="BulletSpawningPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00024, 0.812013)
-gizmo_extents = 0.5
 
 [node name="TurretSkin" type="Node3D" parent="."]
 

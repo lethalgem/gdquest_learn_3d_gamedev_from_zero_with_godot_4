@@ -5,6 +5,7 @@ enum Events {
 	FINISHED,
 	PLAYER_ENTERED_LINE_OF_SIGHT,
 	PLAYER_EXITED_LINE_OF_SIGHT,
+	PLAYER_ENTERED_ATTACK_RANGE,
 }
 
 class State extends RefCounted:
@@ -101,6 +102,9 @@ class StateMachine extends Node:
 		current_state.enter()
 		print("entering: " + current_state.name)
 
+		if is_debugging and current_state.mob.debug_label != null:
+			current_state.mob.debug_label.text = current_state.name
+
 	func _on_state_finished(finished_state: State) -> void:
 		assert(
 			Events.FINISHED in transitions[current_state],
@@ -108,6 +112,18 @@ class StateMachine extends Node:
 			"add a transition for this event in the transitions dictionary."
 		)
 		_transition(transitions[finished_state][Events.FINISHED])
+
+	var is_debugging := false: set = set_is_debugging
+
+	func set_is_debugging(new_value: bool) -> void:
+		is_debugging = new_value
+		if (
+			current_state != null and
+			current_state.mob != null and
+			current_state.mob.debug_label != null
+		):
+			current_state.mob.debug_label.text = current_state.name
+			current_state.mob.debug_label.visible = is_debugging
 
 class Blackboard extends RefCounted:
 	static var player_global_position := Vector3.ZERO
@@ -208,3 +224,39 @@ class StateFireProjectile extends State:
 		projectile.look_at(spawning_point.global_position + spawning_point.global_basis.z)
 
 		finished.emit()
+
+class StateChase extends State:
+
+	var chase_speed := 3.0
+	var drag_factor := 10.0
+	var attack_range := 3.5
+
+	func _init(init_mob: Mob3D) -> void:
+		super("Chase", init_mob)
+
+	func enter() -> void:
+		mob.skin.play("chase")
+
+	func update(delta: float) -> Events:
+		var player_position := Blackboard.player_global_position
+		var direction: Vector3 = mob.global_position.direction_to(player_position)
+		var desired_velocity := (
+			direction * chase_speed
+		)
+		var velocity_distance: float = mob.velocity.distance_to(desired_velocity)
+		mob.velocity = mob.velocity.move_toward(
+			desired_velocity,
+			velocity_distance * drag_factor * delta
+		)
+		mob.move_and_slide()
+
+		mob.rotation.y = (
+			Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
+		)
+
+		var distance: float = mob.global_position.distance_to(player_position)
+		if distance < attack_range:
+			return Events.PLAYER_ENTERED_ATTACK_RANGE
+		elif distance > mob.vision_range:
+			return Events.PLAYER_EXITED_LINE_OF_SIGHT
+		return Events.NONE

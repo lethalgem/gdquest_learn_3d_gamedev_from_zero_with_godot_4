@@ -9,15 +9,8 @@ func _ready() -> void:
 	add_child(state_machine)
 
 	var wait := StateWait.new(self)
-	var shoot_bullet := StateShootBullet.new(self, bullet_spawning_point, bullet_scene)
 
 	state_machine.transitions = {
-		wait: {
-			Events.FINISHED: shoot_bullet,
-		},
-		shoot_bullet: {
-			Events.FINISHED: wait,
-		}
 	}
 
 	state_machine.activate(wait)
@@ -34,17 +27,9 @@ class StateShootBullet extends State:
 		init_projectile_scene: PackedScene
 	) -> void:
 		super("Shoot Bullet", init_mob)
-		mob = init_mob
-		bullet_spawn_point = init_spawning_point
-		bullet_scene = init_projectile_scene
 
 	func enter() -> void:
-		var bullet = bullet_scene.instantiate()
-		mob.add_sibling(bullet)
-		bullet.global_position = bullet_spawn_point.global_position
-		bullet.look_at(bullet_spawn_point.global_position + bullet_spawn_point.global_basis.z)
-
-		finished.emit()
+		pass
 
 
 

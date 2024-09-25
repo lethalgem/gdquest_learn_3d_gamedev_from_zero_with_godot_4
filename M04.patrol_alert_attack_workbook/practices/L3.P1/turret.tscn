@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://practices/L3.P1/turret.gd" id="1_lj1v5"]
-[ext_resource type="Texture2D" path="res://assets/level/checkboard.png" id="2_r0d6a"]
+[ext_resource type="Script" path="res://practices/L3.P1/turret.gd" id="1_kvhof"]
+[ext_resource type="Texture2D" path="res://assets/level/checkboard.png" id="2_vs7vb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t5alr"]
 radius = 0.263873
@@ -9,7 +9,7 @@ height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfbmr"]
 albedo_color = Color(0.552941, 0.0980392, 0.843137, 1)
-albedo_texture = ExtResource("2_r0d6a")
+albedo_texture = ExtResource("2_vs7vb")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_qqsgo"]
@@ -19,7 +19,7 @@ rings = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07ntt"]
 albedo_color = Color(1, 0.717647, 0.188235, 1)
-albedo_texture = ExtResource("2_r0d6a")
+albedo_texture = ExtResource("2_vs7vb")
 uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_27o5b"]
@@ -31,7 +31,7 @@ radial_segments = 10
 rings = 1
 
 [node name="Turret" type="CharacterBody3D"]
-script = ExtResource("1_lj1v5")
+script = ExtResource("1_kvhof")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
