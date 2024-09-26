@@ -6,14 +6,13 @@ func _ready():
 	add_child(state_machine)
 
 	var idle = AI.StateIdle.new(self)
-	var chase = AI.StateChase.new(self)
-	chase.chase_speed = 3.0
+	var flee = AI.StateFlee.new(self)
 
 	state_machine.transitions = {
 		idle: {
-			AI.Events.PLAYER_ENTERED_LINE_OF_SIGHT: chase
+			AI.Events.PLAYER_ENTERED_LINE_OF_SIGHT: flee
 		},
-		chase: {
+		flee: {
 			AI.Events.PLAYER_EXITED_LINE_OF_SIGHT: idle
 		},
 	}

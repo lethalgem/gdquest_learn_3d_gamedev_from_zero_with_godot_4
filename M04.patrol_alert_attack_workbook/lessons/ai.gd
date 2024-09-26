@@ -250,7 +250,7 @@ class StateChase extends State:
 		)
 		mob.move_and_slide()
 
-		mob.rotation.y = (
+		mob.skin.rotation.y = (
 			Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 		)
 
@@ -260,3 +260,33 @@ class StateChase extends State:
 		elif distance > mob.vision_range:
 			return Events.PLAYER_EXITED_LINE_OF_SIGHT
 		return Events.NONE
+
+class StateFlee extends State:
+
+	var flee_speed := 3.5
+	var drag_factor := 10.0
+
+	func _init(init_mob: Mob3D):
+		super("Flee", init_mob)
+
+	func enter() -> void:
+		mob.skin.play("chase")
+
+	func update(delta: float) -> Events:
+		var direction: Vector3 = mob.global_position.direction_to(Blackboard.player_global_position) * -1
+		var desired_velocity := direction * flee_speed
+		var velocity_distance: float = mob.velocity.distance_to(desired_velocity)
+		print(velocity_distance)
+		mob.velocity = mob.velocity.move_toward(
+			desired_velocity,
+			velocity_distance * drag_factor * delta
+		)
+		mob.move_and_slide()
+
+		mob.look_at(direction)
+
+		var distance_to_player: float = mob.global_position.distance_to(Blackboard.player_global_position)
+		if distance_to_player > mob.vision_range:
+			return Events.PLAYER_EXITED_LINE_OF_SIGHT
+		return Events.NONE
+
