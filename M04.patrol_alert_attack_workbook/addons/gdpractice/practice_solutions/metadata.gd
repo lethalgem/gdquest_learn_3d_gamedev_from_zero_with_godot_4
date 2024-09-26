@@ -14,4 +14,9 @@ func _init() -> void:
 			"Fire!",
 			preload("res://addons/gdpractice/practice_solutions/L6.P1/fire.tscn")
 		),
+		PracticeMetadata.new(
+			"04_patrol_alert_attack_030_follow_me",
+			"Follow me",
+			preload("res://addons/gdpractice/practice_solutions/L7.P1/follow_me.tscn")
+		),
 	]
