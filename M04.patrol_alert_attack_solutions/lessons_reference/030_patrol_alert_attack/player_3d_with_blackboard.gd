@@ -1,4 +1,4 @@
-class_name Player3D extends CharacterBody3D
+class_name Player3DWithBlackboard extends CharacterBody3D
 
 ## Emitted when the player dies
 signal died
@@ -20,7 +20,7 @@ signal died
 ## We use this position to make the player look at the mouse.
 ## A plane is an infinite surface we can project the mouse cursor onto,
 ## unlike our game level geometry that has gaps.
-var _world_plane := Plane(Vector3.UP)
+var _ground_plane := Plane(Vector3.UP)
 
 @onready var _gobot_skin_3d: GobotSkin3D = %GobotSkin3D
 ## The camera attached to the player. This camera is used to map the 2D mouse
@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	# Raycast to get the mouse position in 3D space and make the player look at it.
 	var mouse_position_2d := get_viewport().get_mouse_position()
 	var mouse_ray := _camera_3d.project_ray_normal(mouse_position_2d)
-	var world_mouse_position: Variant = _world_plane.intersects_ray(_camera_3d.global_position, mouse_ray)
+	var world_mouse_position: Variant = _ground_plane.intersects_ray(_camera_3d.global_position, mouse_ray)
 	if world_mouse_position != null:
 		_gobot_skin_3d.look_at(world_mouse_position)
 
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	if input_vector.length() > 0.0:
 		var skin_forward_vector := -1.0 * _gobot_skin_3d.global_basis.z
 		_gobot_skin_3d.hips_rotation = skin_forward_vector.signed_angle_to(direction, Vector3.UP)
-	
+
 #ANCHOR:blackboard_global_position
 	AI.Blackboard.player_global_position = global_position
 #END:blackboard_global_position

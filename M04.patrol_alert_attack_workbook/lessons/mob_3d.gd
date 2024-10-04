@@ -4,6 +4,8 @@ class_name Mob3D extends Node
 @export var skin: MobSkin3D = null
 ## The mob's hurtbox. This is necessary for managing damage.
 @export var hurt_box: HurtBox3D = null
+## The mob's hitbox. This is necessary for dealing damage.
+@export var hit_box: HitBox3D = null
 
 @export_category("Detection")
 ## Determines how far the mob can detect the player.

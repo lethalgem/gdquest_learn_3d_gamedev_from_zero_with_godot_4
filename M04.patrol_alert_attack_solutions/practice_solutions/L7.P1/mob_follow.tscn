@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=3 uid="uid://blcgk1jocq31n"]
+
+[ext_resource type="Script" path="res://practice_solutions/L7.P1/mob_follow.gd" id="1_8va3t"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="1_vycvd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t5alr"]
+radius = 0.263873
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfbmr"]
+albedo_color = Color(0.552941, 0.0980392, 0.843137, 1)
+albedo_texture = ExtResource("1_vycvd")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qqsgo"]
+material = SubResource("StandardMaterial3D_hfbmr")
+radial_segments = 32
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07ntt"]
+albedo_color = Color(1, 0.717647, 0.188235, 1)
+albedo_texture = ExtResource("1_vycvd")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_27o5b"]
+material = SubResource("StandardMaterial3D_07ntt")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.5
+radial_segments = 10
+rings = 1
+
+[sub_resource type="Animation" id="Animation_jkq3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Cannon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eaja3"]
+resource_name = "fire"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.183333, 0.3, 0.483333),
+"transitions": PackedFloat32Array(0.210224, 0.517632, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.203575, 0, 0), Vector3(-0.182293, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Cannon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.416667),
+"transitions": PackedFloat32Array(0.101532, 3.13834, 8),
+"update": 0,
+"values": [Vector3(1.8, 0.6, 1.8), Vector3(0.7, 2.4, 0.7), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ipi8t"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.203063, 0.203063, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0660782), Vector3(0, 0, -0.0663225), Vector3(0, 0, 0.0660782)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78sh8"]
+_data = {
+"RESET": SubResource("Animation_jkq3x"),
+"fire": SubResource("Animation_eaja3"),
+"idle": SubResource("Animation_ipi8t")
+}
+
+[node name="MobFollow" type="CharacterBody3D"]
+script = ExtResource("1_8va3t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.478758, 0.0221127)
+shape = SubResource("CapsuleShape3D_t5alr")
+
+[node name="TurretSkin" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="TurretSkin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_qqsgo")
+
+[node name="Cannon" type="MeshInstance3D" parent="TurretSkin"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0.5)
+mesh = SubResource("CylinderMesh_27o5b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TurretSkin"]
+root_node = NodePath("../Body")
+libraries = {
+"": SubResource("AnimationLibrary_78sh8")
+}
+autoplay = "idle"

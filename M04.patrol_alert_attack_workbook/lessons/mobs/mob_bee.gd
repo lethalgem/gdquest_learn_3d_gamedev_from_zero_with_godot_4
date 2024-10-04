@@ -6,16 +6,23 @@ func _ready():
 	add_child(state_machine)
 
 	var idle = AI.StateIdle.new(self)
+	
 	var chase = AI.StateChase.new(self)
 	chase.chase_speed = 3.0
+	
+	var charge = AI.StateCharge.new(self)
 
 	state_machine.transitions = {
 		idle: {
 			AI.Events.PLAYER_ENTERED_LINE_OF_SIGHT: chase
 		},
 		chase: {
-			AI.Events.PLAYER_EXITED_LINE_OF_SIGHT: idle
+			AI.Events.PLAYER_EXITED_LINE_OF_SIGHT: idle,
+			AI.Events.PLAYER_ENTERED_ATTACK_RANGE: charge,
 		},
+		charge: {
+			AI.Events.FINISHED: chase,
+		}
 	}
 
 	state_machine.activate(idle)

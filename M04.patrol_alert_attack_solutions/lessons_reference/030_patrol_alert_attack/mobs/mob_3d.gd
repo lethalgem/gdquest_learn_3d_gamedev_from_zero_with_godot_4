@@ -14,8 +14,10 @@ class_name Mob3D extends CharacterBody3D
 @export var hurt_box: HurtBox3D = null
 #END:export_nodes
 
+#ANCHOR:export_debug
 @export_category("Debugging")
 @export var debug_label: Label3D = null
+#END:export_debug
 
 @export_category("Base Stats")
 @export var max_health := 3

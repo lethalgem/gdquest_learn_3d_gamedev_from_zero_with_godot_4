@@ -1,3 +1,5 @@
+## Script for playing Gobot's animations and controlling its 3D model.
+##
 ## This class is associated with the GobotSkin3D scene.
 ## It exposes an API to play various animations and rotate the model's
 ## hips independently from the head.
@@ -9,16 +11,16 @@ signal foot_step
 ## Gobot's MeshInstance3D model.
 @export var gobot_mesh: MeshInstance3D = null
 
-@export var left_eye_mat_override := 1
-@export var right_eye_mat_override := 2
-@export var open_eye: CompressedTexture2D = null
-@export var close_eye: CompressedTexture2D = null
-
-var hips_rotation := 0.0 : set = set_hips_rotation
+## Controls the rotation of Gobot's hips and legs, relative to the skin's current rotation.
+var hips_rotation := 0.0: set = set_hips_rotation
 
 var _tween_damage: Tween = null
 var _emission_blend := 0.0: set = _set_emission_blend
 var _blink = true: set = _set_blink
+var _left_eye_mat_override := 1
+var _right_eye_mat_override := 2
+var _open_eye_texture: CompressedTexture2D = preload("textures/open_eye.png")
+var _closed_eye_texture: CompressedTexture2D = preload("textures/closed_eyes.png")
 
 @onready var _animation_tree: AnimationTree = %AnimationTree
 @onready var _state_machine: AnimationNodeStateMachinePlayback = _animation_tree.get(
@@ -32,8 +34,8 @@ var _blink = true: set = _set_blink
 @onready var _closed_eyes_timer = %ClosedEyesTimer
 
 @onready var _body_material := preload("res://assets/skins/gobot/materials/gobot_mat.tres")
-@onready var _left_eye_mat: StandardMaterial3D = gobot_mesh.get_surface_override_material(left_eye_mat_override)
-@onready var _right_eye_mat: StandardMaterial3D = gobot_mesh.get_surface_override_material(right_eye_mat_override)
+@onready var _left_eye_mat: StandardMaterial3D = gobot_mesh.get_surface_override_material(_left_eye_mat_override)
+@onready var _right_eye_mat: StandardMaterial3D = gobot_mesh.get_surface_override_material(_right_eye_mat_override)
 @onready var _skeleton_3d: Skeleton3D = $Gobot/rig/Skeleton3D
 @onready var _hips_bone_id: int = _skeleton_3d.find_bone("Hips")
 
@@ -42,14 +44,14 @@ func _ready():
 	_emission_blend = 0.0
 	_blink_timer.timeout.connect(
 		func() -> void:
-			_left_eye_mat.albedo_texture = close_eye
-			_right_eye_mat.albedo_texture = close_eye
+			_left_eye_mat.albedo_texture = _closed_eye_texture
+			_right_eye_mat.albedo_texture = _closed_eye_texture
 			_closed_eyes_timer.start(0.2)
 	)
 	_closed_eyes_timer.timeout.connect(
 		func() -> void:
-			_left_eye_mat.albedo_texture = open_eye
-			_right_eye_mat.albedo_texture = open_eye
+			_left_eye_mat.albedo_texture = _open_eye_texture
+			_right_eye_mat.albedo_texture = _open_eye_texture
 			_blink_timer.start(randf_range(1.0, 8.0))
 	)
 

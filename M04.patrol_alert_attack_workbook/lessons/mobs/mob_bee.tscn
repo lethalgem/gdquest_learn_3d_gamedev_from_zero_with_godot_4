@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cefpocmec05bi"]
+[gd_scene load_steps=6 format=3 uid="uid://cefpocmec05bi"]
 
 [ext_resource type="Script" path="res://lessons/mobs/mob_bee.gd" id="1_1wwfg"]
 [ext_resource type="PackedScene" uid="uid://482rxnrhe64v" path="res://assets/skins/bee_bot/bee_bot_skin_3d.tscn" id="1_bmp2r"]
+[ext_resource type="Script" path="res://assets/hit_box_3d.gd" id="3_cno3f"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w0sn7"]
 height = 4.0
 
-[node name="MobBee" type="CharacterBody3D" node_paths=PackedStringArray("skin", "debug_label")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rq7l3"]
+height = 4.0
+radius = 1.0
+
+[node name="MobBee" type="CharacterBody3D" node_paths=PackedStringArray("skin", "hit_box", "debug_label")]
 script = ExtResource("1_1wwfg")
 skin = NodePath("BeeBotSkin3D")
+hit_box = NodePath("HitBox3D")
 debug_label = NodePath("Label3D")
 
 [node name="BeeBotSkin3D" parent="." instance=ExtResource("1_bmp2r")]
@@ -24,3 +30,13 @@ billboard = 1
 text = "Test"
 font_size = 72
 outline_size = 24
+
+[node name="HitBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("3_cno3f")
+damage_source = 2
+detected_hurtboxes = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_rq7l3")
