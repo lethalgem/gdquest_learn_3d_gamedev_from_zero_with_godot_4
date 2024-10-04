@@ -265,38 +265,28 @@ class StateCharge extends State:
 	
 	var charge_speed := 10.0
 	var charge_distance := 10.0
-	var drag_factor := 10.0
 	
-	var _original_position: Vector3
-	var _direction: Vector3
-	var _desired_velocity: Vector3
+	var _traveled_distance := 0.0
 
 	func _init(init_mob: Mob3D) -> void:
 		super("Charge", init_mob)
 
 	func enter() -> void:
-		mob.skin.play("chase")
-		_original_position = mob.global_position
-		_direction = mob.global_position.direction_to(Blackboard.player_global_position)
-		_desired_velocity = _direction * charge_speed
-		
+		_traveled_distance = 0.0
+		mob.skin.play("charge")
 
 	func exit() -> void:
 		mob.velocity = Vector3.ZERO
 		
 	func update(delta: float) -> Events:
-		var velocity_distance: float = mob.velocity.distance_to(_desired_velocity)
-		mob.velocity = mob.velocity.move_toward(
-			_desired_velocity,
-			velocity_distance * drag_factor * delta
-		)
+		mob.velocity = mob.global_basis.z * charge_speed
 		mob.move_and_slide()
-		
-		mob.rotation.y = (
-			Vector3.FORWARD.signed_angle_to(_direction, Vector3.UP) + PI
-		)
-		
-		var distance_traveled := _original_position.distance_to(mob.global_position)
-		if distance_traveled >= charge_distance:
+
+		if mob.get_slide_collision_count() > 0:
 			return Events.FINISHED
+
+		_traveled_distance += charge_speed * delta
+		if _traveled_distance >= charge_distance:
+			return Events.FINISHED
+
 		return Events.NONE

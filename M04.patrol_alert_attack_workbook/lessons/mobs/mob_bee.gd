@@ -7,10 +7,14 @@ func _ready():
 
 	var idle = AI.StateIdle.new(self)
 	
+	var look_at_player = AI.StateLookAtPlayer.new(self)
+	
 	var chase = AI.StateChase.new(self)
 	chase.chase_speed = 3.0
 	
 	var charge = AI.StateCharge.new(self)
+	
+	var wait = AI.StateWait.new(self)
 
 	state_machine.transitions = {
 		idle: {
@@ -18,9 +22,15 @@ func _ready():
 		},
 		chase: {
 			AI.Events.PLAYER_EXITED_LINE_OF_SIGHT: idle,
-			AI.Events.PLAYER_ENTERED_ATTACK_RANGE: charge,
+			AI.Events.PLAYER_ENTERED_ATTACK_RANGE: look_at_player,
+		},
+		look_at_player: {
+			AI.Events.FINISHED: charge,
 		},
 		charge: {
+			AI.Events.FINISHED: wait,
+		},
+		wait: {
 			AI.Events.FINISHED: chase,
 		}
 	}
