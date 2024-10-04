@@ -265,15 +265,44 @@ class StateCharge extends State:
 	
 	var charge_speed := 10.0
 	var charge_distance := 10.0
+	var number_of_projectiles := 4
+	var arc_angle := 180.0 # degrees
 	
+	var _spawning_point: Node3D = null
+	var _projectile_scene: PackedScene = null
 	var _traveled_distance := 0.0
 
-	func _init(init_mob: Mob3D) -> void:
+	func _init(init_mob: Mob3D,
+		init_spawning_point: Node3D,
+		init_projectile_scene: PackedScene
+	) -> void:
 		super("Charge", init_mob)
+		_spawning_point = init_spawning_point
+		_projectile_scene = init_projectile_scene
 
 	func enter() -> void:
 		_traveled_distance = 0.0
 		mob.skin.play("charge")
+		
+		for number in range(0, number_of_projectiles):
+			var projectile: Projectile3D = _projectile_scene.instantiate()
+			mob.add_sibling(projectile)
+			projectile.global_position = _spawning_point.global_position
+			
+			# handle direction of projectiles here ---
+			# 180 is the equivalent of the PI offset
+			var start_of_arc = mob.rotation_degrees.y + 180 - arc_angle / 2
+			
+			var angle_between_projectiles := 0.0
+			if arc_angle == 360.0:
+				angle_between_projectiles = arc_angle / number_of_projectiles
+			else:
+				# subtract 1 to get projectiles to take up the entire arc
+				angle_between_projectiles = arc_angle / (number_of_projectiles - 1)
+
+			projectile.rotation_degrees.y = (
+				start_of_arc + number * angle_between_projectiles
+			)
 
 	func exit() -> void:
 		mob.velocity = Vector3.ZERO

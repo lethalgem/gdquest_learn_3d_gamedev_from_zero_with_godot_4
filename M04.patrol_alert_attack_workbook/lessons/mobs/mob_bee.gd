@@ -12,7 +12,8 @@ func _ready():
 	var chase = AI.StateChase.new(self)
 	chase.chase_speed = 3.0
 	
-	var charge = AI.StateCharge.new(self)
+	const Projectile3DScene = preload("res://assets/entities/projectile/mob_fireball.tscn")
+	var charge = AI.StateCharge.new(self, %ShootingPoint, Projectile3DScene)
 	
 	var wait = AI.StateWait.new(self)
 
