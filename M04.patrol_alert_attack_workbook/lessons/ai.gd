@@ -6,6 +6,8 @@ enum Events {
 	PLAYER_ENTERED_LINE_OF_SIGHT,
 	PLAYER_EXITED_LINE_OF_SIGHT,
 	PLAYER_ENTERED_ATTACK_RANGE,
+	TOOK_DAMAGE,
+	HEALTH_DEPLETED,
 }
 
 class State extends RefCounted:
@@ -124,6 +126,13 @@ class StateMachine extends Node:
 		):
 			current_state.mob.debug_label.text = current_state.name
 			current_state.mob.debug_label.visible = is_debugging
+			
+	func add_transition_to_all_states(event: Events, end_state: State) -> void:
+		for state: State in transitions:
+			if state == end_state:
+				continue
+			transitions[state][event] = end_state
+		
 
 class Blackboard extends RefCounted:
 	static var player_global_position := Vector3.ZERO
@@ -290,3 +299,18 @@ class StateCharge extends State:
 			return Events.FINISHED
 
 		return Events.NONE
+		
+class StateStagger extends State:
+	
+	func _init(init_mob: Mob3D) -> void:
+		super("Stagger", init_mob)
+		
+	func enter() -> void:
+		mob.skin.play("stagger")
+		mob.skin.animation_finished.connect(_on_animation_finished)
+	
+	func exit() -> void:
+		mob.skin.animation_finished.disconnect(_on_animation_finished)
+		
+	func _on_animation_finished(_anim_name: String) -> void:
+		finished.emit()
