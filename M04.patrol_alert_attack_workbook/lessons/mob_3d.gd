@@ -15,3 +15,8 @@ class_name Mob3D extends Node
 
 @export_category("Debugging")
 @export var debug_label: Label3D = null
+
+@export_category("Base Stats")
+@export var max_health := 3
+
+var health := max_health

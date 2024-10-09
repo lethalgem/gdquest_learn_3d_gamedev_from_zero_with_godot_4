@@ -314,3 +314,21 @@ class StateStagger extends State:
 		
 	func _on_animation_finished(_anim_name: String) -> void:
 		finished.emit()
+
+class StateDie extends State:
+	
+	const SmokeExplosionScene = preload("res://assets/vfx/smoke_vfx/smoke_explosion.tscn")
+	
+	func _init(init_mob: Mob3D) -> void:
+		super("Die", init_mob)
+		
+	func enter() -> void:
+		mob.skin.play("die")
+		
+		var smoke_explosion := SmokeExplosionScene.instantiate()
+		mob.add_sibling(smoke_explosion)
+		smoke_explosion.global_position = mob.global_position
+		
+		mob.skin.animation_finished.connect(func (_animation_name: String) -> void:
+			mob.queue_free()
+		)
