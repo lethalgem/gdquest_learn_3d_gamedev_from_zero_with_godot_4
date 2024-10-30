@@ -386,7 +386,9 @@ class StateStompWalk extends State:
 	var walk_speed := 3.0
 	var drag_factor := 10.0
 	
-	var elapsed_time := 0.0
+	var _elapsed_time := 0.0
+	## To alternate stomping on every other step
+	var _should_stomp := true 
 	
 	const ShockwaveScene = preload("res://assets/entities/projectile/stomp_attack/stomp_attack.tscn")
 	
@@ -398,7 +400,7 @@ class StateStompWalk extends State:
 		mob.skin.foot_step.connect(stomp)
 	
 	func exit() -> void:
-		elapsed_time = 0.0
+		_elapsed_time = 0.0
 		mob.skin.foot_step.disconnect(stomp)
 
 	func update(delta: float) -> Events:
@@ -413,13 +415,17 @@ class StateStompWalk extends State:
 		)
 		mob.move_and_slide()
 
-		elapsed_time += delta
-		if elapsed_time >= duration:
+		_elapsed_time += delta
+		if _elapsed_time >= duration:
 			return Events.FINISHED
 		return Events.NONE
 		
 		
 	func stomp() -> void:
-		var shockwave := ShockwaveScene.instantiate()
-		mob.add_sibling(shockwave)
-		shockwave.global_position = mob.global_position
+		if _should_stomp:
+			var shockwave := ShockwaveScene.instantiate()
+			mob.add_sibling(shockwave)
+			shockwave.global_position = mob.global_position
+			_should_stomp = false
+		else:
+			_should_stomp = true
