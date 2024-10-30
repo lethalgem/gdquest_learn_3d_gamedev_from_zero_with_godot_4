@@ -380,7 +380,46 @@ class StateStomp extends State:
 					stomp()
 				)
 		)
+
+class StateStompWalk extends State:
+	var duration := 2.0
+	var walk_speed := 3.0
+	var drag_factor := 10.0
+	
+	var elapsed_time := 0.0
+	
+	const ShockwaveScene = preload("res://assets/entities/projectile/stomp_attack/stomp_attack.tscn")
+	
+	func _init(init_mob: Mob3D) -> void:
+		super("StompWalk", init_mob)
+	
+	func enter() -> void:
+		mob.skin.play("chase")
+		mob.skin.foot_step.connect(stomp)
+	
+	func exit() -> void:
+		elapsed_time = 0.0
+		mob.skin.foot_step.disconnect(stomp)
+
+	func update(delta: float) -> Events:
+		var direction: Vector3 = mob.global_transform.basis.z
+		var desired_velocity := (
+			direction * walk_speed
+		)
+		var velocity_distance: float = mob.velocity.distance_to(desired_velocity)
+		mob.velocity = mob.velocity.move_toward(
+			desired_velocity,
+			velocity_distance * drag_factor * delta
+		)
+		mob.move_and_slide()
+
+		elapsed_time += delta
+		if elapsed_time >= duration:
+			return Events.FINISHED
+		return Events.NONE
 		
 		
-			
-			
+	func stomp() -> void:
+		var shockwave := ShockwaveScene.instantiate()
+		mob.add_sibling(shockwave)
+		shockwave.global_position = mob.global_position

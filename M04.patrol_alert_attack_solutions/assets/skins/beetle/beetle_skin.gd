@@ -1,5 +1,8 @@
 extends MobSkin3D
 
+## Emitted when the bettle's front legs hit the ground in the walk animation.
+signal stepped
+
 @onready var animation_tree = %AnimationTree
 @onready var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 
@@ -18,7 +21,7 @@ extends MobSkin3D
 func play(animation_name: String) -> void:
 	if animation_name == "idle":
 		state_machine.travel("idle")
-	elif animation_name == "chase":
+	elif animation_name in ["chase", "walk"]:
 		state_machine.travel("walk")
 	elif animation_name == "attack":
 		animation_tree.set("parameters/AttackOneShot/request", true)

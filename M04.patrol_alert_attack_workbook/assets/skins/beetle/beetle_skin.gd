@@ -1,5 +1,8 @@
 extends MobSkin3D
 
+## Called when any foot touches the ground in the animation
+signal foot_step
+
 @onready var animation_tree = %AnimationTree
 @onready var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 
@@ -33,3 +36,6 @@ func play(animation_name: String) -> void:
 		get_tree().create_timer(animation_lengths.die + 0.5).timeout.connect(func ():
 			animation_finished.emit("die")
 		)
+
+func stepped() -> void:
+	foot_step.emit()
