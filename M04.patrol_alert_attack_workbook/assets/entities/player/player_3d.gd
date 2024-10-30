@@ -92,6 +92,9 @@ func _die() -> void:
 		add_sibling(vfx)
 		vfx.global_position = global_position
 	died.emit()
+	
+	AI.Blackboard.is_player_dead = true
+	AI.Blackboard.player_died.emit()
 
 
 func _set_health(new_value: int) -> void:

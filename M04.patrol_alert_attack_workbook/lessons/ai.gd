@@ -8,6 +8,7 @@ enum Events {
 	PLAYER_ENTERED_ATTACK_RANGE,
 	TOOK_DAMAGE,
 	HEALTH_DEPLETED,
+	PLAYER_DIED,
 }
 
 class State extends RefCounted:
@@ -61,6 +62,7 @@ class StateMachine extends Node:
 
 	func _init() -> void:
 		set_physics_process(false)
+		Blackboard.player_died.connect(trigger_event.bind(Events.PLAYER_DIED))
 
 	func activate(initial_state: State = null) -> void:
 		if initial_state != null:
@@ -136,6 +138,13 @@ class StateMachine extends Node:
 
 class Blackboard extends RefCounted:
 	static var player_global_position := Vector3.ZERO
+	
+	static var player_died: Signal = (func ():
+		(Blackboard as RefCounted).add_user_signal("player_died")
+		return Signal(Blackboard, "player_died")
+	).call()
+	
+	static var is_player_dead := false
 
 class StateIdle extends State:
 
@@ -146,6 +155,9 @@ class StateIdle extends State:
 		mob.skin.play("idle")
 
 	func update(_delta: float) -> Events:
+		if Blackboard.is_player_dead:
+			return Events.NONE
+		
 		var distance: float = mob.global_position.distance_to(Blackboard.player_global_position)
 		if distance > mob.vision_range:
 			return Events.NONE

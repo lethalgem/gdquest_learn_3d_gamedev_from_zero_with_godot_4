@@ -28,5 +28,7 @@ func _ready() -> void:
 			AI.Events.FINISHED: look_at_player,
 		},
 	}
+	
+	state_machine.add_transition_to_all_states(AI.Events.PLAYER_DIED, idle)
 
 	state_machine.activate(idle)

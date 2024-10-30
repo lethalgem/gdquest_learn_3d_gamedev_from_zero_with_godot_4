@@ -44,6 +44,7 @@ func _ready():
 	
 	state_machine.add_transition_to_all_states(AI.Events.TOOK_DAMAGE, stagger)
 	state_machine.add_transition_to_all_states(AI.Events.HEALTH_DEPLETED, die)
+	state_machine.add_transition_to_all_states(AI.Events.PLAYER_DIED, idle)
 
 	state_machine.activate(idle)
 
