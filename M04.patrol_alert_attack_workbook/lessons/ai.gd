@@ -347,6 +347,9 @@ class StateDie extends State:
 
 class StateStomp extends State:
 	var duration := 0.5
+	var number_of_stomps := 1
+	var delay_between_stomps := 0.5
+	var times_stomped := 0
 	
 	const ShockwaveScene = preload("res://assets/entities/projectile/stomp_attack/stomp_attack.tscn")
 	
@@ -354,12 +357,30 @@ class StateStomp extends State:
 		super("Stomp", init_mob)
 	
 	func enter() -> void:
+		stomp()
+	
+	func exit() -> void:
+		times_stomped = 0
+		
+	func stomp() -> void:
 		mob.skin.play("attack")
 		
 		var shockwave := ShockwaveScene.instantiate()
 		mob.add_sibling(shockwave)
 		shockwave.global_position = mob.global_position
 		
+		times_stomped += 1
+		
 		mob.get_tree().create_timer(duration).timeout.connect(func ():
-			finished.emit()
+			if times_stomped == number_of_stomps:
+				finished.emit()
+			else:
+				# stomp again
+				mob.get_tree().create_timer(delay_between_stomps).timeout.connect(func ():
+					stomp()
+				)
 		)
+		
+		
+			
+			

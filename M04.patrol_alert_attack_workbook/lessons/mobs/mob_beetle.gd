@@ -16,7 +16,8 @@ func _ready():
 	
 	var wait_after_stomp := AI.StateWait.new(self)
 	
-	var stomp := AI.StateStomp.new(self)
+	var stomp_multiple_times := AI.StateStomp.new(self)
+	stomp_multiple_times.number_of_stomps = 3
 	
 	var die := AI.StateDie.new(self)
 	
@@ -29,9 +30,9 @@ func _ready():
 			AI.Events.PLAYER_ENTERED_ATTACK_RANGE: wait_before_stomp,
 		},
 		wait_before_stomp: {
-			AI.Events.FINISHED: stomp,
+			AI.Events.FINISHED: stomp_multiple_times,
 		},
-		stomp: {
+		stomp_multiple_times: {
 			AI.Events.FINISHED: wait_after_stomp,
 		},
 		wait_after_stomp: {
