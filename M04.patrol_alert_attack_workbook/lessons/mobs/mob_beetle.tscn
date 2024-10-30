@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://43m2w7n8wi6l"]
+
+[ext_resource type="PackedScene" uid="uid://bom11xtbtsxv3" path="res://assets/skins/beetle/beetle_skin.tscn" id="1_on51t"]
+[ext_resource type="Script" path="res://lessons/mobs/mob_beetle.gd" id="1_rqbye"]
+[ext_resource type="Script" path="res://assets/hit_box_3d.gd" id="2_ju7sk"]
+[ext_resource type="Script" path="res://assets/hurt_box_3d.gd" id="3_sfi8s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uxuf8"]
+height = 1.5
+radius = 1.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ve6dx"]
+height = 1.5
+radius = 1.2
+
+[node name="MobBeetle" type="CharacterBody3D" node_paths=PackedStringArray("skin", "hurt_box", "hit_box", "debug_label")]
+script = ExtResource("1_rqbye")
+skin = NodePath("BeetleSkin3D")
+hurt_box = NodePath("HurtBox3D")
+hit_box = NodePath("HitBox3D")
+debug_label = NodePath("Label3D")
+
+[node name="BeetleSkin3D" parent="." instance=ExtResource("1_on51t")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_uxuf8")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+text = "Test"
+font_size = 72
+outline_size = 24
+
+[node name="HitBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("2_ju7sk")
+damage_source = 2
+detected_hurtboxes = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_uxuf8")
+
+[node name="HurtBox3D" type="Area3D" parent="."]
+collision_layer = 2
+script = ExtResource("3_sfi8s")
+hurtbox_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_ve6dx")

@@ -1,0 +1,18 @@
+> Hey! I need you to make this new mob. It's a beetle that stomps the ground and 
+> creates a shockwave that damages everything around it.
+> It's going to spot and chase the player just like the bee, but it's slower, it 
+> doesn't fly, and its attack is a stomp that creates a shockwave and damages 
+> everything in the shockwave area. It'll get close to the player and force them
+> to move away to avoid the stomp. Use the shockwave VFX we have in the assets folder.
+
+requirements:
+	- beetle skin
+	- mob3d class
+	- using ai.gd
+		- add gravity so it can fall
+		- use the chase state
+		- use the wait state
+		- add stomp state when close to the player
+			- use animation and vfx applied
+	- scene with player, ground, beetle
+	- scene with beetle, skin, hit box, hurt box

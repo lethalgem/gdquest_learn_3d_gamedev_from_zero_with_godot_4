@@ -344,3 +344,22 @@ class StateDie extends State:
 		mob.skin.animation_finished.connect(func (_animation_name: String) -> void:
 			mob.queue_free()
 		)
+
+class StateStomp extends State:
+	var duration := 0.5
+	
+	const ShockwaveScene = preload("res://assets/entities/projectile/stomp_attack/stomp_attack.tscn")
+	
+	func _init(init_mob: Mob3D) -> void:
+		super("Stomp", init_mob)
+	
+	func enter() -> void:
+		mob.skin.play("attack")
+		
+		var shockwave := ShockwaveScene.instantiate()
+		mob.add_sibling(shockwave)
+		shockwave.global_position = mob.global_position
+		
+		mob.get_tree().create_timer(duration).timeout.connect(func ():
+			finished.emit()
+		)
