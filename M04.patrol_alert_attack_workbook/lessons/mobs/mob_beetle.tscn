@@ -13,12 +13,13 @@ radius = 1.2
 height = 1.5
 radius = 1.2
 
-[node name="MobBeetle" type="CharacterBody3D" node_paths=PackedStringArray("skin", "hurt_box", "hit_box", "debug_label")]
+[node name="MobBeetle" type="CharacterBody3D" node_paths=PackedStringArray("skin", "hurt_box", "hit_box", "debug_label", "step_locations")]
 script = ExtResource("1_rqbye")
 skin = NodePath("BeetleSkin3D")
 hurt_box = NodePath("HurtBox3D")
 hit_box = NodePath("HitBox3D")
 debug_label = NodePath("Label3D")
+step_locations = [NodePath("RightStepMarker3D"), NodePath("LeftStepMarker3D")]
 
 [node name="BeetleSkin3D" parent="." instance=ExtResource("1_on51t")]
 
@@ -51,3 +52,9 @@ hurtbox_type = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CylinderShape3D_ve6dx")
+
+[node name="RightStepMarker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0.7)
+
+[node name="LeftStepMarker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.7)

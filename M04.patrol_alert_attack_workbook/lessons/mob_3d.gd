@@ -20,3 +20,6 @@ class_name Mob3D extends Node
 @export var max_health := 3
 
 var health := max_health
+
+@export_category("Animation")
+@export var step_locations: Array[Marker3D]

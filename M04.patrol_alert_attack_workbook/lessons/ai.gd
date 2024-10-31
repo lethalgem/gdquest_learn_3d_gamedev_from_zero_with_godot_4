@@ -385,10 +385,13 @@ class StateStompWalk extends State:
 	var duration := 2.0
 	var walk_speed := 3.0
 	var drag_factor := 10.0
+	var should_alternate_stomps := true
 	
 	var _elapsed_time := 0.0
 	## To alternate stomping on every other step
-	var _should_stomp := true 
+	var _should_stomp := true
+	## To place each shockwave where the step occurred
+	var step_location_i := 0
 	
 	const ShockwaveScene = preload("res://assets/entities/projectile/stomp_attack/stomp_attack.tscn")
 	
@@ -422,10 +425,17 @@ class StateStompWalk extends State:
 		
 		
 	func stomp() -> void:
-		if _should_stomp:
+		if _should_stomp or !should_alternate_stomps:
 			var shockwave := ShockwaveScene.instantiate()
 			mob.add_sibling(shockwave)
-			shockwave.global_position = mob.global_position
+			if mob.step_locations != null:
+				if step_location_i >= mob.step_locations.size():
+					step_location_i = 0
+				shockwave.global_position = mob.step_locations[step_location_i].global_position
+			else:
+				shockwave.global_position = mob.global_position
 			_should_stomp = false
 		else:
 			_should_stomp = true
+		## Step location should index regardless of alternating steps so it remains in sync with the animation
+		step_location_i += 1

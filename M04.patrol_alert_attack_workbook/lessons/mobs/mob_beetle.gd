@@ -17,6 +17,7 @@ func _ready():
 	var wait_after_stomp := AI.StateWait.new(self)
 	
 	var stomp_walk := AI.StateStompWalk.new(self)
+	stomp_walk.should_alternate_stomps = false
 	
 	var die := AI.StateDie.new(self)
 	
