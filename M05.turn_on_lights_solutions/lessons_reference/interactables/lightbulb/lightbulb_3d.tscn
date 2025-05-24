@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://py6v3vg2yy8e"]
+
+[ext_resource type="Script" uid="uid://c8ilsspt4s1w0" path="res://lessons_reference/interactables/lightbulb/lightbulb_3d.gd" id="1_2m4t0"]
+[ext_resource type="PackedScene" uid="uid://rpdp50np4l67" path="res://assets/3d_models/lightbulb.glb" id="2_471gj"]
+[ext_resource type="Material" uid="uid://c6oq4wm7pg5n5" path="res://interactables/lightbulb/bulb_mat.tres" id="3_6xi28"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://assets/materials/secondary_color.tres" id="4_ewd61"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qp6yd"]
+size = Vector3(1.4, 1.6, 0.5)
+
+[node name="Lightbulb3D" type="Area3D" node_paths=PackedStringArray("mesh_instances")]
+monitoring = false
+script = ExtResource("1_2m4t0")
+mesh_instances = [NodePath("lightbulb/Bulb"), NodePath("lightbulb/BulbBase")]
+
+[node name="lightbulb" parent="." instance=ExtResource("2_471gj")]
+
+[node name="Bulb" parent="lightbulb" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.876458, 0)
+material_override = ExtResource("3_6xi28")
+
+[node name="BulbBase" parent="lightbulb" index="1"]
+material_override = ExtResource("4_ewd61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_qp6yd")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+light_color = Color(1, 0.940773, 0.712432, 1)
+light_energy = 0.0
+shadow_enabled = true
+
+[editable path="lightbulb"]

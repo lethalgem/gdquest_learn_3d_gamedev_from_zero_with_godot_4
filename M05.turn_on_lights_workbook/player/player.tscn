@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://pcn55rf1h0ik"]
+
+[ext_resource type="Script" uid="uid://ckxsvatlme1k6" path="res://player/player_fps_controller.gd" id="1_oul6g"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kqu6x"]
+height = 1.6
+radius = 0.3
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CylinderShape3D_kqu6x")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+unique_name_in_owner = true

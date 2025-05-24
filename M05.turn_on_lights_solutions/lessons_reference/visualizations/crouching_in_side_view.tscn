@@ -1,0 +1,220 @@
+[gd_scene load_steps=21 format=3 uid="uid://btldmq76ft0cf"]
+
+[ext_resource type="Shader" uid="uid://dwr0ed3vic331" path="res://assets/sky/sky.gdshader" id="1_r8a62"]
+[ext_resource type="PackedScene" uid="uid://don4817u8figv" path="res://lessons_reference/player/player.tscn" id="2_0qvjw"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/checkboard.png" id="3_8wgx5"]
+
+[sub_resource type="Curve" id="Curve_dm5j7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kqpfv"]
+texture_mode = 1
+curve = SubResource("Curve_dm5j7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsoe5"]
+shader = ExtResource("1_r8a62")
+shader_parameter/top_color = Color(0.815686, 0.65098, 1, 1)
+shader_parameter/bottom_color = Color(0.392157, 0.607843, 1, 1)
+shader_parameter/gradient_curve = SubResource("CurveTexture_kqpfv")
+
+[sub_resource type="Sky" id="Sky_wka67"]
+sky_material = SubResource("ShaderMaterial_xsoe5")
+
+[sub_resource type="Environment" id="Environment_10hr7"]
+background_mode = 2
+sky = SubResource("Sky_wka67")
+ambient_light_source = 2
+ambient_light_color = Color(0.772549, 0.764706, 0.847059, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+glow_strength = 0.25
+fog_enabled = true
+fog_light_color = Color(0.905882, 0.784314, 1, 1)
+fog_density = 0.0
+fog_aerial_perspective = 1.0
+fog_sky_affect = 0.0
+fog_height = -1.13
+fog_height_density = 0.8443
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pmtnp"]
+height = 0.2
+radius = 0.314
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42xqf"]
+albedo_color = Color(0.423529, 0.172549, 0.854902, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_er11x"]
+material = SubResource("StandardMaterial3D_42xqf")
+top_radius = 0.314
+bottom_radius = 0.314
+height = 1.6
+radial_segments = 32
+rings = 0
+
+[sub_resource type="GDScript" id="GDScript_qspo3"]
+script/source = "extends MeshInstance3D
+
+
+var collider: CollisionShape3D = null
+var shape: CylinderShape3D = null
+
+
+func _ready() -> void:
+	collider = get_parent().get_node(\"CollisionShape3D\")
+	shape = collider.shape
+
+
+func _process(delta: float) -> void:
+	if not is_equal_approx(shape.height, mesh.height):
+		mesh.height = shape.height
+		mesh.top_radius = shape.radius
+		mesh.bottom_radius = shape.radius
+		global_position = collider.global_position
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l03uj"]
+albedo_color = Color(0.768627, 0.113725, 0.239216, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0d834"]
+material = SubResource("StandardMaterial3D_l03uj")
+top_radius = 0.314
+bottom_radius = 0.314
+height = 0.2
+radial_segments = 32
+rings = 0
+
+[sub_resource type="GDScript" id="GDScript_0yxdd"]
+script/source = "extends MeshInstance3D
+
+@onready var shapecast: ShapeCast3D = get_parent().get_node(\"CrouchCeilingCast\")
+@onready var line: MeshInstance3D = $Line
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	const COLOR_COLLIDING = Color(0.769, 0.114, 0.239)
+	const COLOR_IDLE = Color(0.063, 0.698, 0.937)
+
+	visible = shapecast.is_colliding()
+	if shapecast.is_colliding():
+		var point := shapecast.get_collision_point(0)
+		global_position = shapecast.global_position
+		global_position.y = point.y
+		mesh.material.albedo_color = COLOR_COLLIDING
+		
+		line.mesh.height = point.y - shapecast.global_position.y
+		line.global_position.y = shapecast.global_position.y + line.mesh.height / 2.0
+	else:
+		global_position = shapecast.global_position
+		mesh.material.albedo_color = COLOR_IDLE
+"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lhfb7"]
+material = SubResource("StandardMaterial3D_l03uj")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.2
+radial_segments = 16
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxf5y"]
+albedo_color = Color(0.768627, 0.113725, 0.239216, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bvrxf"]
+material = SubResource("StandardMaterial3D_xxf5y")
+top_radius = 0.04
+bottom_radius = 0.04
+height = 1.6
+radial_segments = 16
+rings = 0
+
+[sub_resource type="GDScript" id="GDScript_pemmx"]
+script/source = "extends MeshInstance3D
+
+@onready var ray_cast_3d: RayCast3D = $\"../RayCast3D\"
+@onready var player: PlayerFPSController = $\"..\"
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	
+	const COLOR_COLLIDING = Color(0.769, 0.114, 0.239)
+	const COLOR_IDLE = Color(0.063, 0.698, 0.937)
+
+	ray_cast_3d.force_raycast_update()
+	mesh.material.albedo_color = COLOR_COLLIDING if ray_cast_3d.is_colliding() else COLOR_IDLE
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31dii"]
+albedo_color = Color(0.309804, 0.756863, 0.396078, 1)
+albedo_texture = ExtResource("3_8wgx5")
+roughness = 0.8
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 10.0
+uv1_world_triplanar = true
+
+[node name="CrouchingInSideView" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_10hr7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.664463, 0.241845, 0, 0.34202, 0.939693, -0.707107, -0.664463, 0.241845, 3.1, 3.28171, -2.66167)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_0qvjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.82053)
+
+[node name="CrouchCeilingCast" parent="Player" index="1"]
+shape = SubResource("CylinderShape3D_pmtnp")
+
+[node name="ColliderVisualization" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CylinderMesh_er11x")
+script = SubResource("GDScript_qspo3")
+
+[node name="ShapecastVisualization" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+top_level = true
+mesh = SubResource("CylinderMesh_0d834")
+script = SubResource("GDScript_0yxdd")
+
+[node name="Line" type="MeshInstance3D" parent="Player/ShapecastVisualization"]
+mesh = SubResource("CylinderMesh_lhfb7")
+skeleton = NodePath("../..")
+
+[node name="RaycastVisualization" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0.0205271)
+visible = false
+mesh = SubResource("CylinderMesh_bvrxf")
+script = SubResource("GDScript_pemmx")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+visible = false
+enabled = false
+target_position = Vector3(0, 1.5, 0)
+
+[node name="Terrain" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0768499, 0, 0)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 3, -6)
+use_collision = true
+size = Vector3(4, 3, 3)
+material = SubResource("StandardMaterial3D_31dii")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2, -6)
+use_collision = true
+size = Vector3(20, 4, 4)
+material = SubResource("StandardMaterial3D_31dii")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.87171, 1, -6.04163)
+current = true
+fov = 40.0
+
+[editable path="Player"]

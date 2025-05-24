@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://comfntgfnertf"]
+
+[ext_resource type="Script" uid="uid://bj5jmpoqhuhiq" path="res://lessons_reference/interactables/door/door_3d.gd" id="1_sc46n"]
+[ext_resource type="PackedScene" uid="uid://bpgjdvoag1sg1" path="res://interactables/door/door_model.tscn" id="2_3ujq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qp6yd"]
+size = Vector3(1.4, 1.6, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3d78"]
+size = Vector3(2.02246, 2.04468, 0.5)
+
+[node name="Door3D" type="Area3D" node_paths=PackedStringArray("mesh_instances")]
+monitoring = false
+script = ExtResource("1_sc46n")
+mesh_instances = [NodePath("door/DoorBottom"), NodePath("door/DoorTop")]
+
+[node name="door" parent="." instance=ExtResource("2_3ujq8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_qp6yd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="StaticBodyCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_k3d78")
+
+[editable path="door"]

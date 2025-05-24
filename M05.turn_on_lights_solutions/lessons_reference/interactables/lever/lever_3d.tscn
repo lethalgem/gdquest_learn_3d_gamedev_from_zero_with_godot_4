@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqesdkrwncxse"]
+
+[ext_resource type="Script" uid="uid://c6mdqw821yduf" path="res://lessons_reference/interactables/lever/lever_3d.gd" id="1_k1dhb"]
+[ext_resource type="PackedScene" uid="uid://b3122fl2rw71t" path="res://interactables/lever/lever_model.tscn" id="2_q6jb2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wvlci"]
+radius = 0.628646
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qo401"]
+resource_local_to_scene = true
+albedo_color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="Lever3D" type="Area3D" node_paths=PackedStringArray("mesh_instances")]
+monitoring = false
+script = ExtResource("1_k1dhb")
+mesh_instances = [NodePath("Lever3D/LeverBody"), NodePath("Lever3D/LeverHandle")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0812378, 0.5, 0)
+shape = SubResource("SphereShape3D_wvlci")
+
+[node name="Lever3D" parent="." instance=ExtResource("2_q6jb2")]
+
+[node name="LeverHandle" parent="Lever3D" index="1"]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, 0.1, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_qo401")
+
+[editable path="Lever3D"]

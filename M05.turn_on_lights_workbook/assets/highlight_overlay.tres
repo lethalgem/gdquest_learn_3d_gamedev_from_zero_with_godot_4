@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cc6lwpcdkjtmx"]
+
+[ext_resource type="Shader" path="res://assets/materials/highlight.gdshader" id="1_yvdc0"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_yvdc0")
+shader_parameter/outline_color = Color(1, 0.780392, 0.117647, 1)
+shader_parameter/outline_width = 0.02
+shader_parameter/stripe_frequency = 10.0
+shader_parameter/stripe_animation_speed = 2.0
+shader_parameter/alpha = 1.0

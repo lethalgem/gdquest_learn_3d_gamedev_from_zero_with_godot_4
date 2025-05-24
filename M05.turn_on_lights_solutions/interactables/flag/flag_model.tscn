@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d06nl2py8humi"]
+
+[ext_resource type="PackedScene" uid="uid://drkqkt2fp2jca" path="res://assets/3d_models/flag.glb" id="1_5wqnt"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://assets/materials/secondary_color.tres" id="2_rrrp6"]
+[ext_resource type="Material" uid="uid://cg2ujwpv73ha0" path="res://interactables/flag/waving_flag_material.tres" id="3_okdj4"]
+
+[node name="flag" instance=ExtResource("1_5wqnt")]
+
+[node name="GoalBody" parent="." index="0"]
+material_override = ExtResource("2_rrrp6")
+
+[node name="GoalFlag" parent="." index="1"]
+material_override = ExtResource("3_okdj4")
+lod_bias = 10.0

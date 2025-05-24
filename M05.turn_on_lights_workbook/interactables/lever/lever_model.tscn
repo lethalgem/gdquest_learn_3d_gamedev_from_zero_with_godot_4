@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3122fl2rw71t"]
+
+[ext_resource type="PackedScene" uid="uid://c518s53sg0w1x" path="res://assets/3d_models/lever.glb" id="1_oijaq"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://assets/materials/secondary_color.tres" id="3_s4lah"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py33u"]
+resource_local_to_scene = true
+albedo_color = Color(0.811765, 0.866667, 1, 1)
+
+[node name="Lever3D" instance=ExtResource("1_oijaq")]
+
+[node name="LeverBody" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.1, 0)
+lod_bias = 10.0
+surface_material_override/0 = ExtResource("3_s4lah")
+
+[node name="LeverHandle" parent="." index="1"]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, 0.1, 0)
+lod_bias = 10.0
+surface_material_override/0 = ExtResource("3_s4lah")
+surface_material_override/1 = SubResource("StandardMaterial3D_py33u")

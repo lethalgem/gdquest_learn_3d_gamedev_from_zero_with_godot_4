@@ -1,0 +1,89 @@
+[gd_scene load_steps=15 format=3 uid="uid://c1ruobme5mf7l"]
+
+[ext_resource type="Script" uid="uid://yoggr072sb8k" path="res://lessons_reference/extras/game.gd" id="1_niwci"]
+[ext_resource type="Shader" uid="uid://dwr0ed3vic331" path="res://assets/sky/sky.gdshader" id="2_tq2y2"]
+[ext_resource type="PackedScene" uid="uid://don4817u8figv" path="res://lessons_reference/player/player.tscn" id="3_akjra"]
+[ext_resource type="PackedScene" uid="uid://bq1e7yi8uo37t" path="res://level/terrain.tscn" id="4_801de"]
+[ext_resource type="PackedScene" uid="uid://c6uew1wfpkt16" path="res://lessons_reference/interactables/flag/flag_3d.tscn" id="7_3lvk1"]
+[ext_resource type="PackedScene" uid="uid://c7uelyqccwh6p" path="res://lessons_reference/interactables/moving_platform/moving_platform_3d.tscn" id="8_shgl5"]
+[ext_resource type="PackedScene" uid="uid://bqesdkrwncxse" path="res://lessons_reference/interactables/lever/lever_3d.tscn" id="9_kqagu"]
+[ext_resource type="PackedScene" uid="uid://comfntgfnertf" path="res://lessons_reference/interactables/door/door_3d.tscn" id="10_1kyqf"]
+
+[sub_resource type="Curve" id="Curve_dm5j7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kqpfv"]
+texture_mode = 1
+curve = SubResource("Curve_dm5j7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsoe5"]
+shader = ExtResource("2_tq2y2")
+shader_parameter/top_color = Color(0.815686, 0.65098, 1, 1)
+shader_parameter/bottom_color = Color(0.392157, 0.607843, 1, 1)
+shader_parameter/gradient_curve = SubResource("CurveTexture_kqpfv")
+
+[sub_resource type="Sky" id="Sky_wka67"]
+sky_material = SubResource("ShaderMaterial_xsoe5")
+
+[sub_resource type="Environment" id="Environment_10hr7"]
+background_mode = 2
+sky = SubResource("Sky_wka67")
+ambient_light_source = 2
+ambient_light_color = Color(0.772549, 0.764706, 0.847059, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+glow_strength = 0.25
+fog_enabled = true
+fog_light_color = Color(0.905882, 0.784314, 1, 1)
+fog_density = 0.0
+fog_aerial_perspective = 1.0
+fog_sky_affect = 0.0
+fog_height = -1.13
+fog_height_density = 0.8443
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bfwmc"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_niwci")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_10hr7")
+
+[node name="Player" parent="." instance=ExtResource("3_akjra")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.664463, 0.241845, 0, 0.34202, 0.939693, -0.707107, -0.664463, 0.241845, 3.1, 3.28171, -2.66167)
+shadow_enabled = true
+
+[node name="Terrain" parent="." instance=ExtResource("4_801de")]
+unique_name_in_owner = true
+
+[node name="KillPlane" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.032, -1, -19.3423)
+shape = SubResource("WorldBoundaryShape3D_bfwmc")
+
+[node name="Flag3D" parent="." instance=ExtResource("7_3lvk1")]
+transform = Transform3D(0.988319, 0, -0.152399, 0, 1, 0, 0.152399, 0, 0.988319, 0.399891, 12, -129.542)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.49989, 2, -89.8423)
+
+[node name="MovingPlatform3D" parent="." node_paths=PackedStringArray("end_marker", "linked_lever") instance=ExtResource("8_shgl5")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.49989, 2, -80.8423)
+end_marker = NodePath("../Marker3D")
+linked_lever = NodePath("../Lever3D2")
+
+[node name="Lever3D2" parent="." instance=ExtResource("9_kqagu")]
+transform = Transform3D(1, -4.37114e-08, 1.06581e-14, 4.37114e-08, 1, 4.37114e-08, -1.42109e-14, -4.37114e-08, 1, 0.199891, 1.92865, -78.3423)
+
+[node name="Door3D" parent="." instance=ExtResource("10_1kyqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0321093, 0, -55)

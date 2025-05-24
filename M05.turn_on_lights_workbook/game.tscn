@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://betib1svdimdg"]
+
+[ext_resource type="Shader" uid="uid://dwr0ed3vic331" path="res://assets/sky/sky.gdshader" id="2_tq2y2"]
+[ext_resource type="PackedScene" uid="uid://pcn55rf1h0ik" path="res://player/player.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bq1e7yi8uo37t" path="res://level/terrain.tscn" id="4_801de"]
+
+[sub_resource type="Curve" id="Curve_dm5j7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kqpfv"]
+texture_mode = 1
+curve = SubResource("Curve_dm5j7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsoe5"]
+shader = ExtResource("2_tq2y2")
+shader_parameter/top_color = Color(0.815686, 0.65098, 1, 1)
+shader_parameter/bottom_color = Color(0.392157, 0.607843, 1, 1)
+shader_parameter/gradient_curve = SubResource("CurveTexture_kqpfv")
+
+[sub_resource type="Sky" id="Sky_wka67"]
+sky_material = SubResource("ShaderMaterial_xsoe5")
+
+[sub_resource type="Environment" id="Environment_10hr7"]
+background_mode = 2
+sky = SubResource("Sky_wka67")
+ambient_light_source = 2
+ambient_light_color = Color(0.772549, 0.764706, 0.847059, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+glow_strength = 0.25
+fog_enabled = true
+fog_light_color = Color(0.905882, 0.784314, 1, 1)
+fog_density = 0.0
+fog_aerial_perspective = 1.0
+fog_sky_affect = 0.0
+fog_height = -1.13
+fog_height_density = 0.8443
+
+[node name="Game" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_10hr7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.664463, 0.241845, 0, 0.34202, 0.939693, -0.707107, -0.664463, 0.241845, 3.1, 3.28171, -2.66167)
+shadow_enabled = true
+
+[node name="Terrain" parent="." instance=ExtResource("4_801de")]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("3_feb5d")]

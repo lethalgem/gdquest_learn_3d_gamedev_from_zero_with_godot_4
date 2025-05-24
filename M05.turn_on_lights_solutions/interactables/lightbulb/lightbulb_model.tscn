@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://druvcn0mbps6b"]
+
+[ext_resource type="PackedScene" uid="uid://rpdp50np4l67" path="res://assets/3d_models/lightbulb.glb" id="1_gaor1"]
+[ext_resource type="Material" uid="uid://c6oq4wm7pg5n5" path="res://interactables/lightbulb/bulb_mat.tres" id="2_n1hk3"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://assets/materials/secondary_color.tres" id="3_brmq7"]
+
+[node name="lightbulb" instance=ExtResource("1_gaor1")]
+
+[node name="Bulb" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.876458, 0)
+material_override = ExtResource("2_n1hk3")
+
+[node name="BulbBase" parent="." index="1"]
+material_override = ExtResource("3_brmq7")
