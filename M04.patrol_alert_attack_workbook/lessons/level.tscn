@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://coimsdft40t2l"]
+[gd_scene load_steps=9 format=3 uid="uid://coimsdft40t2l"]
 
 [ext_resource type="Script" path="res://lessons/level.gd" id="1_t3xly"]
+[ext_resource type="PackedScene" uid="uid://cefpocmec05bi" path="res://lessons/mobs/mob_bee.tscn" id="2_51251"]
 [ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="2_f03ub"]
 [ext_resource type="PackedScene" uid="uid://bykg04g4jr07j" path="res://assets/entities/player/player_3d.tscn" id="3_ifpx3"]
-[ext_resource type="PackedScene" uid="uid://43m2w7n8wi6l" path="res://lessons/mobs/mob_beetle.tscn" id="5_feofi"]
+[ext_resource type="PackedScene" uid="uid://b5luv0tbdat2c" path="res://lessons/mobs/mob_dummy.tscn" id="7_cvkwr"]
 [ext_resource type="PackedScene" uid="uid://bij84ol81kcts" path="res://assets/level/kill_plane_3d.tscn" id="7_cwur3"]
 
 [sub_resource type="Environment" id="Environment_s26vl"]
@@ -29,6 +30,9 @@ uv1_triplanar = true
 
 [node name="Level" type="Node"]
 script = ExtResource("1_t3xly")
+
+[node name="MobBee" parent="." instance=ExtResource("2_51251")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
@@ -63,5 +67,5 @@ size = 12.555
 near = 15.0
 far = 100.0
 
-[node name="MobBeetle" parent="." instance=ExtResource("5_feofi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+[node name="MobDummy3D" parent="." instance=ExtResource("7_cvkwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
