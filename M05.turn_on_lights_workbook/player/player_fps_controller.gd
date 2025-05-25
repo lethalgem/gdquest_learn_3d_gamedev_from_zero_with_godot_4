@@ -2,8 +2,43 @@ class_name PlayerFPSController extends CharacterBody3D
 
 @export_range(0.001, 1.0) var mouse_sensitivity := 0.005
 @export_range(0.001, 1.0) var joystick_sensitivity := 0.005
+@export_category("Ground movement")
+@export_range(1.0, 10.0, 0.1) var max_speed_jog := 4.0
+@export_range(1.0, 15.0, 0.1) var max_speed_sprint := 7.0
+@export_range(1.0, 100.0, 0.1) var acceleration_jog := 15.0
+@export_range(1.0, 100.0, 0.1) var acceleration_sprint := 25.0
+@export_range(1.0, 100.0, 0.1) var deceleration := 12.0
 
 @onready var _camera: Camera3D = %Camera3D
+
+func _physics_process(delta: float) -> void:
+	var input_direction_2d := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var movement_direction_2d := input_direction_2d.rotated(-1.0 * _camera.rotation.y)
+	var movement_direction_3d := Vector3(movement_direction_2d.x, 0.0, movement_direction_2d.y)
+	var player_wants_to_move := movement_direction_2d.length() > 0.1
+	if player_wants_to_move:
+		var max_speed := max_speed_jog
+		var acceleration := acceleration_jog
+		if Input.is_action_pressed("sprint"):
+			max_speed = max_speed_sprint
+			acceleration = acceleration_sprint
+		var velocity_ground_plane := Vector3(velocity.x, 0.0, velocity.z)
+		var velocity_change := acceleration * delta
+		velocity_ground_plane = velocity_ground_plane.move_toward(
+			movement_direction_3d * max_speed, velocity_change
+		)
+		velocity.x = velocity_ground_plane.x
+		velocity.z = velocity_ground_plane.z
+	else:
+		var velocity_ground_plane := Vector3(velocity.x, 0.0, velocity.z)
+		var velocity_change := deceleration * delta
+		velocity_ground_plane = velocity_ground_plane.move_toward(
+			Vector3.ZERO, velocity_change
+		)
+		velocity.x = velocity_ground_plane.x
+		velocity.z = velocity_ground_plane.z
+	
+	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	var is_mouse_button := event is InputEventMouseButton
