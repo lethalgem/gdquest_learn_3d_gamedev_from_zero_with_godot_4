@@ -12,10 +12,13 @@ class_name PlayerFPSController extends CharacterBody3D
 @export_range(1.0, 50.0, 0.1) var gravity := 17.0
 @export_range(1.0, 50.0, 0.1) var max_fall_speed := 20.0
 @export_range(1.0, 20.0, 0.1) var jump_velocity := 8.0
+@export_range(1.0, 20.0, 0.1) var double_jump_velocity := 5.0
 
 @onready var _camera: Camera3D = %Camera3D
 @onready var _neck: Node3D = %Neck
 @onready var _neck_start_height: float = _neck.position.y
+
+var jump_count := 0
 
 func _physics_process(delta: float) -> void:
 	var input_direction_2d := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
@@ -47,8 +50,16 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		velocity.y = maxf(velocity.y, -max_fall_speed)
-	if is_on_floor() and Input.is_action_pressed("jump"):
+		
+		if Input.is_action_just_pressed("jump") and jump_count <= 1:
+			velocity.y = double_jump_velocity
+			jump_count += 1
+		
+	
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_velocity
+		jump_count += 1
+
 	
 	var was_in_air := not is_on_floor()
 	var fall_speed := absf(velocity.y)
@@ -57,11 +68,14 @@ func _physics_process(delta: float) -> void:
 	
 	var just_landed := was_in_air and is_on_floor()
 	if just_landed:
+		jump_count = 0
 		var impact_intensity := fall_speed / max_fall_speed
 		
 		var impact_tween := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		impact_tween.tween_property(_neck, "position:y", _neck.position.y - 0.2 * impact_intensity, 0.06)
 		impact_tween.tween_property(_neck, "position:y", _neck_start_height, 0.1)
+	
+	print(jump_count)
 
 func _unhandled_input(event: InputEvent) -> void:
 	var is_mouse_button := event is InputEventMouseButton
